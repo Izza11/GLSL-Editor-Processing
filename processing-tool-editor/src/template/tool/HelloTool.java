@@ -47,7 +47,7 @@ public class HelloTool implements Tool {
 
   ServerSocket serverSocket;
   Socket socket;
-  //Runnable clientHandler;
+  Runnable clientHandler;
   Process process;
   
   public String getMenuTitle() {
@@ -64,6 +64,8 @@ public class HelloTool implements Tool {
   public void run() {
     // Get the currently active Editor to run the Tool on it
     Editor editor = base.getActiveEditor();   
+    
+    /*
     if (process == null) {
     	
     	try {
@@ -74,6 +76,7 @@ public class HelloTool implements Tool {
 		}
     	
     }
+    */
     ClientHandler clientHandler =  new ClientHandler();
     clientHandler.start();
     
