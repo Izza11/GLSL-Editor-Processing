@@ -1,4 +1,4 @@
-// $ANTLR 2.7.7 (20060906): expandedpde.g -> PdeTokenTypes.txt$
+// $ANTLR 2.7.7 (2006-11-01): expandedpde.g -> PdeTokenTypes.txt$
 Pde    // output token vocab name
 BLOCK=4
 MODIFIERS=5

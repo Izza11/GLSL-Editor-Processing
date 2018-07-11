@@ -1,4 +1,4 @@
-// $ANTLR 2.7.7 (20060906): "expandedpde.g" -> "PdeLexer.java"$
+// $ANTLR 2.7.7 (2006-11-01): "expandedpde.g" -> "PdeLexer.java"$
 
 package processing.mode.java.preproc;
 

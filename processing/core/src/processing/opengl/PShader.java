@@ -27,10 +27,16 @@ package processing.opengl;
 import processing.core.*;
 import processing.opengl.PGraphicsOpenGL.GLResourceShader;
 
+import java.io.IOException;
 import java.net.URL;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.HashMap;
+import java.nio.file.attribute.FileTime;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.ZoneId;
+import java.nio.file.*;
 
 /**
  * This class encapsulates a GLSL shader program, including a vertex
@@ -162,6 +168,11 @@ public class PShader implements PConstants {
   protected int specularLoc;
   protected int emissiveLoc;
   protected int shininessLoc;
+
+  long vertOldtime = 0;
+  long fragOldtime = 0;
+  boolean initTimeShdrFile = true;
+  boolean ShdrFileEdited = false;
 
   public PShader() {
     parent = null;
@@ -736,7 +747,7 @@ public class PShader implements PConstants {
 
   protected void setUniformImpl(String name, int type, Object value) {
     if (uniformValues == null) {
-      uniformValues = new HashMap<String, UniformValue>();
+      uniformValues = new HashMap<>();
     }
     uniformValues.put(name, new UniformValue(type, value));
   }
@@ -826,10 +837,10 @@ public class PShader implements PConstants {
           PImage img = (PImage)val.value;
           Texture tex = currentPG.getTexture(img);
 
-          if (textures == null) textures = new HashMap<Integer, Texture>();
+          if (textures == null) textures = new HashMap<>();
           textures.put(loc, tex);
 
-          if (texUnits == null) texUnits = new HashMap<Integer, Integer>();
+          if (texUnits == null) texUnits = new HashMap<>();
           if (texUnits.containsKey(loc)) {
             unit = texUnits.get(loc);
             pgl.uniform1i(loc, unit);
@@ -886,10 +897,61 @@ public class PShader implements PConstants {
       pgl.activeTexture(PGL.TEXTURE0);
     }
   }
+public long getShaderFileTimeStamp(String shdrFileName) {
 
+  long timeInMilli = 0;
+  String current = null;
+  try {
+    current = new java.io.File( "." ).getCanonicalPath();
+  } catch (IOException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+  }
+  current = current + "\\data" + "\\" + shdrFileName;
+  //System.out.println("Current dir:"+current);
+  Path path = Paths.get(current);
+
+  FileTime fileTime;
+
+  try {
+    fileTime = Files.getLastModifiedTime(path);
+    //DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy - hh:mm:ss");
+    //System.out.println(dateFormat.format(fileTime.toMillis()));
+    //System.out.println(fileTime.toInstant().atZone(ZoneId.systemDefault()));
+    timeInMilli = fileTime.toInstant().toEpochMilli();
+    System.out.println(timeInMilli);
+
+
+   } catch (IOException e) {
+     System.err.println("Cannot get the last modified time - " + e);
+   }
+
+  return timeInMilli;
+}
 
   public void init() {
-    if (glProgram == 0 || contextIsOutdated()) {
+
+    if (initTimeShdrFile) {
+      //vertOldtime = getShaderFileTimeStamp(vertexFilename);
+      fragOldtime = getShaderFileTimeStamp(fragmentFilename);
+      initTimeShdrFile = false;
+
+    }
+
+    fragOldtime = getShaderFileTimeStamp(fragmentFilename);
+    /*
+    long CurVertFileTime = getShaderFileTimeStamp(vertexFilename);;
+    long CurFragFileTime = getShaderFileTimeStamp(fragmentFilename);
+    long CurVsOldFrag = CurFragFileTime - fragOldtime;
+    long CurVsOldVert = CurVertFileTime - vertOldtime;
+
+    if (CurVsOldFrag > 100 || CurVsOldVert > 100) {
+      ShdrFileEdited = true;
+      System.out.println("Shdr files were changed recompiled");
+    }
+  */
+
+    if (glProgram == 0 || contextIsOutdated() || ShdrFileEdited) {
       create();
       if (compile()) {
         pgl.attachShader(glProgram, glVertex);
@@ -900,6 +962,8 @@ public class PShader implements PConstants {
         pgl.linkProgram(glProgram);
 
         validate();
+        ShdrFileEdited = false;
+
       }
     }
   }
