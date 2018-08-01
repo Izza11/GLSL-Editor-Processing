@@ -28,8 +28,7 @@ public class ClientHandler extends Thread {
 		        socket = serverSocket.accept();
 		        
 		        while (true) {
-		        	
-		        	
+		        			        	
 		        	InputStream is = socket.getInputStream();
 		        	InputStreamReader isr = new InputStreamReader(is);
 		        	BufferedReader br = new BufferedReader(isr);
@@ -40,9 +39,8 @@ public class ClientHandler extends Thread {
 		        	System.out.println("Message received from client is " + message + "\n");
 		        	
 		        	outToClient.flush();
-		        	outToClient.writeBytes("Got it!");
-		        	outToClient.flush();
-		        	
+		        	outToClient.writeBytes("Got it!\n");
+		        	outToClient.flush();		        	
 		        	
 		        	
 		        }

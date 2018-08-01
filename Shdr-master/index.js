@@ -68,6 +68,8 @@ const client = net.createConnection({ port: 25000 }, () => {
 
 client.on('data', function(data) {
   
+    console.log('DATA: ' + data);
+
     client.write('DATA: ' + data);
     // Close the client socket completely
     //client.destroy();
@@ -78,6 +80,7 @@ client.on('data', function(data) {
 client.on('end', () => {
   console.log('disconnected from server');
 });
+
 client.on('error', function(ex) {
   console.log("handled error");
   console.log(ex);
