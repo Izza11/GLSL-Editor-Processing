@@ -54,6 +54,8 @@ var counter = 0;
         var f_array = f.readFileSync(arr[0] + '/' + arr[1]).toString().split(";");
         var v_array = f.readFileSync(arr[0] + '/' + arr[2]).toString().split(";");
 
+
+
         this.vs = v_array.join(';');
         this.fs = f_array.join(';');
 
@@ -120,9 +122,35 @@ var counter = 0;
         this.fs = shader;
         this.material.fragmentShader = shader;
 
+        // write to fragment file in sketch folder
+
+        if (writeFile && ShaderPath != null) {
+
+          f.writeFile(fsPath, this.fs, function(err) {
+            if(err) {
+              return console.log(err);
+            }
+            //console.log("The file was saved!");
+          }); 
+          writeFile = false;
+        }
+
       } else {
         this.vs = shader;
         this.material.vertexShader = shader;
+
+        // write to vertex file in sketch folder
+
+        if (writeFile && ShaderPath != null) {
+
+          f.writeFile(fsPath, this.vs, function(err) {
+            if(err) {
+              return console.log(err);
+            }
+            //console.log("The file was saved!");
+          }); 
+          writeFile = false;
+        }
       }
 
       return this.material.needsUpdate = true;

@@ -6,7 +6,7 @@ var defaultLoaded = false;
 (function() {
   
   var App;
-
+  
   App = (function() {
     App.UPDATE_ALL = 0;
 
