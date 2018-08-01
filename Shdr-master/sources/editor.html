@@ -11,14 +11,10 @@
 </head>
 <body>
 
-
-
-
-
 <!-- inline preloader -->
 <div id="main-loader" style="position: absolute; z-index: 10000; top: 0; bottom: 0; left: 0; right: 0; background: #000; color: #000; font-family: Arial, 'Ubuntu sans', sans-serif; font-size: 32px; font-weight: bold;">
   <div style="position: absolute; z-index: 10001; top: 50%; left: 0; width: 100%; background: #191919; text-align: center; line-height: 60px; margin-top: -30px; border-top: 1px solid #333; border-bottom: 1px solid #333;">
-    <img src="img/loader.gif" height="32" width="32" alt="Loading..." style="margin-bottom: -4px"> Fetching COOL stuff.
+    <img src="img/loader.gif" height="32" width="32" alt="Loading..." style="margin-bottom: -4px"> Fetching stuff.
   </div>
 </div>
 
@@ -32,20 +28,6 @@
       <button type="button" class="menu-item" data-index="cancel">Cancel</button>
     </div>
   </div>
-
-
-  <button onclick="clickThing()">Inform PDE!</button>
-  <div id="numberplace"></div>
-  <script>
-    const {ipcRenderer} = require('electron')
-
-    function clickThing(){
-      ipcRenderer.send('ping', ok);
-    }
-  </script>
-
-
-
   <div class="menu" id="menu-load" data-action="load">
     <button type="button" class="menu-trigger menu-icon-only"><i class="icon-folder-open-alt"></i></button>
     <div class="menu-list"></div>
@@ -93,9 +75,6 @@
   <div class="menu" id="menu-share" data-action="share">
     <button type="button" class="menu-button"><i class="icon-share-alt"></i>Share</button>
   </div>
-
-  
-
   <!-- LEFT/RIGHT -->
   <div class="menu menu-right" id="menu-models" data-action="models">
     <button type="button" class="menu-trigger"><i class="icon-reorder"></i><span>Suzanne (high)</span></button>
@@ -158,7 +137,7 @@
 </div>
 
 <div id="box-about" class="box">
-  <h1 class="title">About</h1>
+  <h1 class="title">About Shdr</h1>
   <div class="content">
     <p>
       Shdr is an online ESSL (GLSL) shader editor, viewer and validator powered by WebGL.
@@ -200,8 +179,8 @@
 <script src="shdr/Snippets.js" type="text/javascript" charset="utf-8"></script>
 <script src="shdr/Models.js" type="text/javascript" charset="utf-8"></script>
 <script src="shdr/Viewer.js" type="text/javascript" charset="utf-8"></script>
-<script src="shdr/FileSaver.js" type="text/javascript" charset="utf-8"></script>
 <script src="shdr/App.js" type="text/javascript" charset="utf-8"></script>
+
 <script src="shdr/Bootstrap.js" type="text/javascript" charset="utf-8"></script>
 
 </body>

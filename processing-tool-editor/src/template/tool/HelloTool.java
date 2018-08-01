@@ -31,6 +31,10 @@ import processing.app.ui.Editor;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -39,16 +43,13 @@ import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import processing.app.Sketch;
+
 // when creating a tool, the name of the main class which implements Tool must
 // be the same as the value defined for project.name in your build.properties
 
 public class HelloTool implements Tool {
   Base base;
-
-  ServerSocket serverSocket;
-  Socket socket;
-  Runnable clientHandler;
-  Process process;
   
   public String getMenuTitle() {
     return "##tool.name##";
@@ -60,29 +61,11 @@ public class HelloTool implements Tool {
     this.base = base;
   }
 
-
+  
   public void run() {
     // Get the currently active Editor to run the Tool on it
     Editor editor = base.getActiveEditor();   
-    
-    /*
-    if (process == null) {
-    	
-    	try {
-			Process process = new ProcessBuilder("X:\\GSOC\\Shdr-master\\release-builds\\Shdr-win32-ia32\\Shdr.exe").start();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	
-    }
-    */
-    ClientHandler clientHandler =  new ClientHandler();
-    clientHandler.start();
-    
-    
-    
-    
+
     
     // Fill in author.name, author.url, tool.prettyVersion and
     // project.prettyName in build.properties for them to be auto-replaced here.

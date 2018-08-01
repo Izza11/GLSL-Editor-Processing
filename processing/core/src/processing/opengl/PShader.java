@@ -27,6 +27,7 @@ package processing.opengl;
 import processing.core.*;
 import processing.opengl.PGraphicsOpenGL.GLResourceShader;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.FloatBuffer;
@@ -169,10 +170,6 @@ public class PShader implements PConstants {
   protected int emissiveLoc;
   protected int shininessLoc;
 
-  long vertOldtime = 0;
-  long fragOldtime = 0;
-  boolean initTimeShdrFile = true;
-  boolean ShdrFileEdited = false;
 
   public PShader() {
     parent = null;
@@ -897,61 +894,11 @@ public class PShader implements PConstants {
       pgl.activeTexture(PGL.TEXTURE0);
     }
   }
-public long getShaderFileTimeStamp(String shdrFileName) {
 
-  long timeInMilli = 0;
-  String current = null;
-  try {
-    current = new java.io.File( "." ).getCanonicalPath();
-  } catch (IOException e) {
-    // TODO Auto-generated catch block
-    e.printStackTrace();
-  }
-  current = current + "\\data" + "\\" + shdrFileName;
-  //System.out.println("Current dir:"+current);
-  Path path = Paths.get(current);
-
-  FileTime fileTime;
-
-  try {
-    fileTime = Files.getLastModifiedTime(path);
-    //DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy - hh:mm:ss");
-    //System.out.println(dateFormat.format(fileTime.toMillis()));
-    //System.out.println(fileTime.toInstant().atZone(ZoneId.systemDefault()));
-    timeInMilli = fileTime.toInstant().toEpochMilli();
-    System.out.println(timeInMilli);
-
-
-   } catch (IOException e) {
-     System.err.println("Cannot get the last modified time - " + e);
-   }
-
-  return timeInMilli;
-}
 
   public void init() {
 
-    if (initTimeShdrFile) {
-      //vertOldtime = getShaderFileTimeStamp(vertexFilename);
-      fragOldtime = getShaderFileTimeStamp(fragmentFilename);
-      initTimeShdrFile = false;
-
-    }
-
-    fragOldtime = getShaderFileTimeStamp(fragmentFilename);
-    /*
-    long CurVertFileTime = getShaderFileTimeStamp(vertexFilename);;
-    long CurFragFileTime = getShaderFileTimeStamp(fragmentFilename);
-    long CurVsOldFrag = CurFragFileTime - fragOldtime;
-    long CurVsOldVert = CurVertFileTime - vertOldtime;
-
-    if (CurVsOldFrag > 100 || CurVsOldVert > 100) {
-      ShdrFileEdited = true;
-      System.out.println("Shdr files were changed recompiled");
-    }
-  */
-
-    if (glProgram == 0 || contextIsOutdated() || ShdrFileEdited) {
+    if (glProgram == 0 || contextIsOutdated()) {
       create();
       if (compile()) {
         pgl.attachShader(glProgram, glVertex);
@@ -962,7 +909,6 @@ public long getShaderFileTimeStamp(String shdrFileName) {
         pgl.linkProgram(glProgram);
 
         validate();
-        ShdrFileEdited = false;
 
       }
     }
