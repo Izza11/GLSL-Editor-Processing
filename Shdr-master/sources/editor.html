@@ -28,6 +28,21 @@
       <button type="button" class="menu-item" data-index="cancel">Cancel</button>
     </div>
   </div>
+
+
+<button onclick="clickThing()">Inform PDE!</button>
+  <div id="numberplace"></div>
+  <script>
+    const {ipcRenderer} = require('electron')
+
+    function clickThing(){
+      ipcRenderer.send('sending ok value', ok);
+    }
+
+  </script>
+
+
+
   <div class="menu" id="menu-load" data-action="load">
     <button type="button" class="menu-trigger menu-icon-only"><i class="icon-folder-open-alt"></i></button>
     <div class="menu-list"></div>

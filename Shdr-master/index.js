@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
 const url = require('url')
 
@@ -65,12 +65,17 @@ const client = net.createConnection({ port: 25000 }, () => {
   client.write('world!\r\n');
 });
 
+var okValue = false;
 
 client.on('data', function(data) {
   
-    console.log('DATA: ' + data);
+  ipcMain.on('sending ok value', (event, arg) => {
+    console.log("Value of ok is : " + arg);
+    okValue = arg;
 
-    client.write('DATA: ' + data);
+    client.write('ok value is: ' + okValue + '\n');
+  })
+
     // Close the client socket completely
     //client.destroy();
     

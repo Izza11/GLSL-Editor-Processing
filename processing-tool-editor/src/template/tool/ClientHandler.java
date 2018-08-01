@@ -42,7 +42,6 @@ public class ClientHandler extends Thread {
 		        	outToClient.writeBytes("Got it!\n");
 		        	outToClient.flush();		        	
 		        	
-		        	
 		        }
 
 		         
