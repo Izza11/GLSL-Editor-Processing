@@ -50,6 +50,12 @@ import processing.app.Sketch;
 
 public class HelloTool implements Tool {
   Base base;
+
+  ServerSocket serverSocket;
+  Socket socket;
+  Runnable clientHandler;
+  Process process;
+  
   
   public String getMenuTitle() {
     return "##tool.name##";
@@ -61,11 +67,28 @@ public class HelloTool implements Tool {
     this.base = base;
   }
 
-  
   public void run() {
     // Get the currently active Editor to run the Tool on it
     Editor editor = base.getActiveEditor();   
-
+    
+    /*
+    if (process == null) {
+    	
+    	try {
+			Process process = new ProcessBuilder("X:\\GSOC\\Shdr-master\\release-builds\\Shdr-win32-ia32\\Shdr.exe").start();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    }
+    */
+    ClientHandler clientHandler =  new ClientHandler();
+    clientHandler.start();
+    
+    
+    
+    
     
     // Fill in author.name, author.url, tool.prettyVersion and
     // project.prettyName in build.properties for them to be auto-replaced here.

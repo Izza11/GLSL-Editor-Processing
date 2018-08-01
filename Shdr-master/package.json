@@ -1,15 +1,19 @@
 {
   "name": "shdr",
+  "productName": "Shdr",
   "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "node build/build.js --output=./sources/build/shdr.js && node node_modules/http-server/bin/http-server sources",
-    "build": "node build/build.js --output=./sources/build/shdr.js --minify",
-    "build-extension": "node build/build.js --output=./build/shdr.js --minify --chromeapp"
+    "start": "electron ."
   },
   "dependencies": {
     "argparse": "latest",
-    "uglify-js": "latest",
     "coffee-script": "latest",
-    "http-server": "latest"
+    "http-server": "latest",
+    "uglify-js": "latest"
+  },
+  "devDependencies": {
+    "electron": "^2.0.5"
   }
 }
