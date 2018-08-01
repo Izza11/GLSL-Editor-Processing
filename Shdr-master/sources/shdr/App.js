@@ -295,6 +295,11 @@ var ok = false;
     };
 
     App.prototype.save = function(name) {
+
+      var code = this.editor.getSession().getValue();
+      var file = new File([code],name +'.glsl', {type: 'text/plain'});
+      saveAs(file);
+      
       var obj;
       this.updateDocument();
       obj = {
