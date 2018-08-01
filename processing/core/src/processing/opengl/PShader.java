@@ -982,7 +982,7 @@ public long getShaderFileTimeStamp(String shdrFileName) {
         pgl.linkProgram(glProgram);
 
         validate();
-        ShdrFileEdited = false;
+        //ShdrFileEdited = false;
 
       }
     }
@@ -1017,6 +1017,11 @@ public long getShaderFileTimeStamp(String shdrFileName) {
   protected void validate() {
     pgl.getProgramiv(glProgram, PGL.LINK_STATUS, intBuffer);
     boolean linked = intBuffer.get(0) == 0 ? false : true;
+    if (!linked) {
+      return;
+    } else {
+      ShdrFileEdited = false;
+    }
     if (!linked) {
       PGraphics.showException("Cannot link shader program:\n" +
                               pgl.getProgramInfoLog(glProgram));

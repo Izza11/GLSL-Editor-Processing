@@ -81,7 +81,6 @@ const client = net.createConnection({ port: 25000 }, () => {
 });
 
 
-var PDEcomp = false;
 var recPath = "";
 var sendPath = false;
 
@@ -89,7 +88,7 @@ client.on('data', function(data) {
 
   var d = data.toString();
 
-  if (d.charAt(d.length - 1) != "!") {
+  if (d.charAt(d.length - 1) != "!") {   // checking that entire message has been received and not broken as it usually breaks
     recPath += d;
   } else {
     recPath += d;
