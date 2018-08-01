@@ -154,22 +154,20 @@ public class HelloTool implements Tool {
     	
     }
     
-      
-    /*
+    ClientHandler clientHandler =  new ClientHandler(dataPath);
+    clientHandler.start();
+
+   
     if (process == null) {
     	
     	try {
-			Process process = new ProcessBuilder("X:\\GSOC\\Shdr-master\\release-builds\\Shdr-win32-ia32\\Shdr.exe").start();
+			Process process = new ProcessBuilder("X:\\GLSL-Editor-Processing\\Shdr-master\\release-builds\\Shdr-win32-ia32\\Shdr.exe").start();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	
     }
-    */
-    ClientHandler clientHandler =  new ClientHandler(dataPath);
-    clientHandler.start();
-    
     
     
     

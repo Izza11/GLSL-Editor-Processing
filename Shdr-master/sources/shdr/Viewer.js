@@ -143,7 +143,7 @@ var counter = 0;
 
         if (writeFile && ShaderPath != null) {
 
-          f.writeFile(fsPath, this.vs, function(err) {
+          f.writeFile(vsPath, this.vs, function(err) {
             if(err) {
               return console.log(err);
             }
