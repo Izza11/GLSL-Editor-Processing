@@ -1,5 +1,5 @@
-// $ANTLR 2.7.7 (2006-11-01): java15.g -> JavaTokenTypes.txt$
-Java    // output token vocab name
+// $ANTLR 2.7.7 (20060906): expandedpde.g -> PdeTokenTypes.txt$
+Pde    // output token vocab name
 BLOCK=4
 MODIFIERS=5
 OBJBLOCK=6
@@ -170,3 +170,7 @@ HEX_DIGIT=170
 VOCAB=171
 EXPONENT=172
 FLOAT_SUFFIX=173
+CONSTRUCTOR_CAST=174
+EMPTY_FIELD=175
+WEBCOLOR_LITERAL=176
+LITERAL_color="color"=177

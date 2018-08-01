@@ -1,6 +1,7 @@
 const {app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
 const url = require('url')
+var f = require('fs')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -10,6 +11,7 @@ function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({width: 800, height: 600})
 
+  
   // and load the index.html of the app.
   win.loadURL('file:///X:/GLSL-Editor-Processing/Shdr-master/sources/editor.html')
 
@@ -26,6 +28,7 @@ function createWindow () {
     win = null
   })
 }
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -65,27 +68,49 @@ const client = net.createConnection({ port: 25000 }, () => {
   client.write('world!\r\n');
 });
 
-var okValue = false;
+var recPath = "";
+var sendPath = false;
 
 client.on('data', function(data) {
+
+  var d = data.toString();
+
+  if (d.charAt(d.length - 1) != "!") {
+    recPath += d;
+  } else {
+    recPath += d;
+    sendPath = true;
+    console.log('Message is : ' + recPath);
+
+  }
   
-  ipcMain.on('sending ok value', (event, arg) => {
-    console.log("Value of ok is : " + arg);
-    okValue = arg;
-
-    client.write('ok value is: ' + okValue + '\n');
-  })
-
+    //client.write('DATA: ' + data);
     // Close the client socket completely
     //client.destroy();
     
 });
 
+ipcMain.on('send shader path', (event, arg) => {
+
+  if (sendPath) {
+    event.sender.send('shader path sent', recPath);
+    sendPath = false;
+    console.log("Sending path to renderer: " + recPath);
+
+  } 
+
+})
+
+ipcMain.on('print', (event, arg) => {
+
+  console.log(arg);
+
+})
+
 
 client.on('end', () => {
   console.log('disconnected from server');
 });
-
 client.on('error', function(ex) {
   console.log("handled error");
   console.log(ex);

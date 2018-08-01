@@ -56,6 +56,18 @@ public class HelloTool implements Tool {
   Runnable clientHandler;
   Process process;
   
+  String[] vertex = {"uniform mat4 transform;","attribute vec4 position;", "attribute vec3 normal;", "void main()", "{", "gl_Position = transform * position;", "}"};
+  String[] fragment = {"#ifdef GL_ES", "precision mediump float;", "precision mediump int;", "#endif", "void main()", "{", "  gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);", "}"};
+  
+  public void loadDefaultShaders(String[] shader, String dataPath) throws IOException {
+	  FileWriter fw;
+		fw = new FileWriter(dataPath);
+
+	    for (int i = 0; i < shader.length; i++) {
+	      fw.write(shader[i] + "\n");
+	    }
+	    fw.close();
+  }
   
   public String getMenuTitle() {
     return "##tool.name##";
@@ -67,10 +79,82 @@ public class HelloTool implements Tool {
     this.base = base;
   }
 
+  public String getDataFolderPath(Sketch s) {
+	  String dataFolderPath = null;
+	  File dataFolderLoc = s.prepareDataFolder(); 	
+  	
+  	try {
+			dataFolderPath = dataFolderLoc.getCanonicalPath();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+  	return dataFolderPath;
+  }
+  
   public void run() {
     // Get the currently active Editor to run the Tool on it
     Editor editor = base.getActiveEditor();   
+    Sketch s = editor.getSketch();
+
+    boolean dataExists = s.hasDataFolder();
+    String dataPath = getDataFolderPath(s);
     
+    if (!dataExists) {
+    	editor.handleSave(true);   	
+
+        try {
+    		loadDefaultShaders(vertex, dataPath + "\\vert.glsl");
+    		loadDefaultShaders(fragment, dataPath + "\\frag.glsl");
+    	} catch (IOException e) {
+    		// TODO Auto-generated catch block
+    		e.printStackTrace();
+    	}
+    } else {
+    	File folder = new File(dataPath); //use getFolder
+    	File[] shaderList = folder.listFiles();
+    	
+    	int tokencount;
+    	FileReader fr = null;
+		try {
+			fr = new FileReader(shaderList[0]);
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+    	BufferedReader br=new BufferedReader(fr);
+    	String str;
+    	    
+    	String keyword="gl_FragColor";
+    	
+    	String fragName = null;
+    	String vertName = null;
+    	    
+    	try {
+			while ((str=br.readLine())!=null){
+				if(str.contains(keyword)) {
+					System.out.println(str);
+					fragName = shaderList[0].getName();
+					vertName = shaderList[1].getName();
+					break;
+					
+				} else {
+					fragName = shaderList[1].getName();
+					vertName = shaderList[0].getName();
+				}
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}  
+    	
+    	dataPath = dataPath.replace("\\", "/"); // because javascript requires backward slash
+    	dataPath = dataPath + ";" + fragName + ";" + vertName + ";!";
+    	System.out.println(dataPath);
+    	
+    }
+    
+      
     /*
     if (process == null) {
     	
@@ -83,7 +167,7 @@ public class HelloTool implements Tool {
     	
     }
     */
-    ClientHandler clientHandler =  new ClientHandler();
+    ClientHandler clientHandler =  new ClientHandler(dataPath);
     clientHandler.start();
     
     

@@ -12,6 +12,12 @@ public class ClientHandler extends Thread {
 	     
 	   ServerSocket serverSocket;
 	   Runnable clientHandler;
+	   String dataPath;
+	   
+	   
+	   ClientHandler (String path) {
+		   dataPath = path;
+	   }
 	   
 	   private Socket socket = null; //initialize in const'r	 
 
@@ -28,7 +34,8 @@ public class ClientHandler extends Thread {
 		        socket = serverSocket.accept();
 		        
 		        while (true) {
-		        			        	
+		        	
+		        	
 		        	InputStream is = socket.getInputStream();
 		        	InputStreamReader isr = new InputStreamReader(is);
 		        	BufferedReader br = new BufferedReader(isr);
@@ -39,8 +46,10 @@ public class ClientHandler extends Thread {
 		        	System.out.println("Message received from client is " + message + "\n");
 		        	
 		        	outToClient.flush();
-		        	outToClient.writeBytes("Got it!\n");
-		        	outToClient.flush();		        	
+		        	outToClient.writeBytes(dataPath);
+		        	outToClient.flush();
+		        	
+		        	
 		        	
 		        }
 
