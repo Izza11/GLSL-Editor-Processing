@@ -170,6 +170,11 @@ public class PShader implements PConstants {
   protected int emissiveLoc;
   protected int shininessLoc;
 
+  long vertOldtime = 0;
+  long fragOldtime = 0;
+  long prevfragOldTime = 0;
+  boolean initTimeShdrFile = true;
+  boolean ShdrFileEdited = false;
 
   public PShader() {
     parent = null;
@@ -894,11 +899,79 @@ public class PShader implements PConstants {
       pgl.activeTexture(PGL.TEXTURE0);
     }
   }
+public long getShaderFileTimeStamp(String shdrFileName) {
 
+  long timeInMilli = 0;
+  String current = null;
+  try {
+    current = new java.io.File( "." ).getCanonicalPath();
+  } catch (IOException e) {
+    // TODO Auto-generated catch block
+    e.printStackTrace();
+  }
+
+  if (shdrFileName == null) {
+    return timeInMilli;
+  }
+
+  File file = new File(parent.dataPath(shdrFileName));
+
+  try {
+    current = file.getCanonicalPath();
+  } catch (IOException e1) {
+    e1.printStackTrace();
+  }
+
+
+  Path path = Paths.get(current);
+
+  FileTime fileTime;
+
+  try {
+    fileTime = Files.getLastModifiedTime(path);
+    //DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy - hh:mm:ss");
+    //System.out.println(dateFormat.format(fileTime.toMillis()));
+    //System.out.println(fileTime.toInstant().atZone(ZoneId.systemDefault()));
+    timeInMilli = fileTime.toInstant().toEpochMilli();
+    //System.out.println(timeInMilli);
+
+
+   } catch (IOException e) {
+     System.err.println("Cannot get the last modified time - " + e);
+   }
+
+  return timeInMilli;
+}
 
   public void init() {
 
-    if (glProgram == 0 || contextIsOutdated()) {
+    if (initTimeShdrFile) {
+      vertOldtime = getShaderFileTimeStamp(vertexFilename);
+      fragOldtime = getShaderFileTimeStamp(fragmentFilename);
+      initTimeShdrFile = false;
+
+    }
+
+    long CurVertFileTime = getShaderFileTimeStamp(vertexFilename);;
+    long CurFragFileTime = getShaderFileTimeStamp(fragmentFilename);
+    //long CurVsOldFrag = CurFragFileTime - fragOldtime;
+    //long CurVsOldVert = CurVertFileTime - vertOldtime;
+
+    if (CurFragFileTime > fragOldtime) {
+      fragOldtime = CurFragFileTime;
+      ShdrFileEdited = true;
+      System.out.println("Shdr files were changed recompiled");
+      setFragmentShader(fragmentFilename); // in order to upload contents of new fragment shader into program, otherwise changes are not read
+    }
+
+    if (CurVertFileTime > vertOldtime) {
+      vertOldtime = CurVertFileTime;
+      ShdrFileEdited = true;
+      System.out.println("Shdr files were changed recompiled");
+      setVertexShader(vertexFilename); // in order to upload contents of new vertex shader into program, otherwise changes are not read
+    }
+
+    if (glProgram == 0 || contextIsOutdated() || ShdrFileEdited) {
       create();
       if (compile()) {
         pgl.attachShader(glProgram, glVertex);
@@ -909,6 +982,7 @@ public class PShader implements PConstants {
         pgl.linkProgram(glProgram);
 
         validate();
+        ShdrFileEdited = false;
 
       }
     }
