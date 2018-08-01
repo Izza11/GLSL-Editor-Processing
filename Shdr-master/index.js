@@ -12,6 +12,10 @@ function createWindow () {
   win = new BrowserWindow({width: 800, height: 600})
 
   
+  win.webContents.on('did-finish-load', () => {
+    win.webContents.send('send counter value', 'Hello renderer!');
+  });
+  
   // and load the index.html of the app.
   win.loadURL('file:///X:/GLSL-Editor-Processing/Shdr-master/sources/editor.html')
 
@@ -28,6 +32,14 @@ function createWindow () {
     win = null
   })
 }
+
+ipcMain.on('counter value sent', (event, arg) => {
+
+    console.log("Value of counter is : " + arg);
+    //event.sender.send('send counter value', 0);
+
+})
+
 
 
 // This method will be called when Electron has finished
@@ -68,6 +80,8 @@ const client = net.createConnection({ port: 25000 }, () => {
   client.write('world!\r\n');
 });
 
+
+var PDEcomp = false;
 var recPath = "";
 var sendPath = false;
 
@@ -83,6 +97,7 @@ client.on('data', function(data) {
     console.log('Message is : ' + recPath);
 
   }
+  
   
     //client.write('DATA: ' + data);
     // Close the client socket completely

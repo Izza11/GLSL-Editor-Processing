@@ -38,9 +38,11 @@
   <div id="numberplace"></div>
   <script>
     var ShaderPath = null;
+    var writeFile = false;
     var fsPath = null;
     var vsPath = null;
     const {ipcRenderer} = require('electron')
+    var f = require('fs');
 
     //function clickThing(){
       ipcRenderer.send('send shader path', 0);
@@ -54,11 +56,12 @@
       vsPath = (arr[0] + '/' + arr[2]).toString();
 
       // Send sync message to main process
-      ipcRenderer.send('print', fsPath);
+      ipcRenderer.send('print', ShaderPath);
     });
     
 
   </script>
+
 
 
 
