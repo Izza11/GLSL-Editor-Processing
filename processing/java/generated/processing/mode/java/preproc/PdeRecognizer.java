@@ -1267,7 +1267,7 @@ inputState.guessing--;
               t_AST.getType() == LITERAL_int ||
               t_AST.getType() == LITERAL_long ||
               t_AST.getType() == LITERAL_short )) ))
-		  throw new SemanticException(" (e_AST == null) ||\r\n          ( (e_AST.getType() != STRING_LITERAL) ||\r\n            ( t_AST.getType() == LITERAL_boolean ||\r\n              t_AST.getType() == LITERAL_double ||\r\n              t_AST.getType() == LITERAL_float ||\r\n              t_AST.getType() == LITERAL_int ||\r\n              t_AST.getType() == LITERAL_long ||\r\n              t_AST.getType() == LITERAL_short )) ");
+		  throw new SemanticException(" (e_AST == null) ||\n          ( (e_AST.getType() != STRING_LITERAL) ||\n            ( t_AST.getType() == LITERAL_boolean ||\n              t_AST.getType() == LITERAL_double ||\n              t_AST.getType() == LITERAL_float ||\n              t_AST.getType() == LITERAL_int ||\n              t_AST.getType() == LITERAL_long ||\n              t_AST.getType() == LITERAL_short )) ");
 		if ( inputState.guessing==0 ) {
 			constructorCast_AST = (AST)currentAST.root;
 			constructorCast_AST = (AST)astFactory.make( (new ASTArray(3)).add(astFactory.create(CONSTRUCTOR_CAST,"CONSTRUCTOR_CAST")).add(t_AST).add(e_AST));

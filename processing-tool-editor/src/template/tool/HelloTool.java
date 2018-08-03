@@ -157,7 +157,7 @@ public class HelloTool implements Tool {
     ClientHandler clientHandler =  new ClientHandler(dataPath);
     clientHandler.start();
 
-   
+   /*
     if (process == null) {
     	
     	try {
@@ -168,7 +168,7 @@ public class HelloTool implements Tool {
 		}
     	
     }
-    
+    */
     
     
     

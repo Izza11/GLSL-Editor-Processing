@@ -1,4 +1,4 @@
-// $ANTLR 2.7.7 (20060906): "java15.g" -> "JavaRecognizer.java"$
+// $ANTLR 2.7.7 (2006-11-01): "java15.g" -> "JavaRecognizer.java"$
 
 package processing.mode.java.preproc;
 
