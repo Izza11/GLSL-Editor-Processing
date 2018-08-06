@@ -59,7 +59,7 @@ Instructions to run and test:
    
 5. Run the sketch by clicking the play button (make sure the sketch is not empty).
    
-4. Once the sketch is running, open the 'Shader Tool' from the Tools menu. (Make sure you have either saved your sketch or have an          existing sketch opened before you run the tool or you will be asked to save your sketch.) Successful run should print this in            console: 
+4. Once the sketch is running, open the 'Shader Tool' from the Tools menu. (Make sure you have either saved your sketch or have an          existing sketch opened before you run the tool or you will be asked to save your sketch.) Successful run should show a separate          display widow and this message printed on the PDE console: 
 
          "Server started. Waiting for clients to connect.."
 
