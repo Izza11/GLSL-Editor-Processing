@@ -67,7 +67,11 @@ Download the repo as zip to a local directory and unzip the contents.
     
             classpath.local.location=X:/GLSL-Editor-Processing/processing-tool-editor/lib
             
-    3. Compile using Ant:
+    3. Set the appropriate path to Shdr.exe in HelloTool.java inside the run() function as shown below 
+    
+            Process process = new ProcessBuilder("X:\\GLSL-Editor-Processing\\Shdr-master\\release-builds\\Shdr-win32-ia32\\Shdr.exe").start();
+            
+    4. Compile using Ant:
     
       - From the menu bar, choose Window → Show View → Ant. A tab with the title "Ant" will pop up on the right side of your                     Eclipse editor.
       - Drag the resources/build.xml file in there, and a new item "ProcessingTools" will appear.
@@ -77,7 +81,7 @@ Download the repo as zip to a local directory and unzip the contents.
 
     #### Using command line:
     
-    1. Follow point (2) under 'Using Eclipse'
+    1. Follow point (2) and (3) under 'Using Eclipse'
     
     2. Open a terminal/console/command prompt, change to the resources directory inside processing-tool-editor folder, and type and run        the command 
     
