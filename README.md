@@ -71,7 +71,7 @@ Download the repo as zip to a local directory and unzip the contents.
     
     This will build and install the tool and you should see "Shader Editor" in the Tools dropdown inside the PDE.
 
-3. Launching Processing from command line
+3. Launching PDE (Processing Development Environment) from command line
 
    In your terminal/console/command prompt, change to the 'GLSL-Editor-Processing/processing/build' directory and run the following        commands:
    
