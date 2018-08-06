@@ -74,10 +74,12 @@ Download the repo as zip to a local directory and unzip the contents.
    This should launch Shdr as a separate window with a text editor on the left and a model of a 3D monkey on the right. Once that          happens you should see these printed messages:
 
     PDE's console: 
-    "Message received from client is World" 
+    
+         "Message received from client is World" 
     
     Command Line:
-    "Connected to Server".
+    
+         "Connected to Server".
 
-9. Make changes to Shdr editor contents. If shader has been called inside the sketch you should see changes applied to PDE rendering        display in real-time
+4. Make changes to Shdr editor contents. If shader has been called inside the sketch you should see changes applied to PDE rendering        display in real-time
 
