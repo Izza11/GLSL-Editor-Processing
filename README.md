@@ -63,7 +63,13 @@ Download the repo as zip to a local directory and unzip the contents.
 
     #### Using command line:
     
-    Open a terminal/console/command prompt, change to the resources directory inside processing-tool-editor folder, and type and run the     command 'ant'. This will build and install the tool and you should see "Shader Editor" in the Tools dropdown inside the PDE.
+    1. Follow point (2) under 'Using Eclipse'
+    
+    2. Open a terminal/console/command prompt, change to the resources directory inside processing-tool-editor folder, and type and run        the command 
+    
+            'ant' 
+    
+    This will build and install the tool and you should see "Shader Editor" in the Tools dropdown inside the PDE.
 
 3. Launching Processing from command line
 
