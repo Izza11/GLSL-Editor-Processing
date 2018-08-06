@@ -5,6 +5,7 @@ Instructions to run and test:
 1. Download the repo as zip to a local directory and unzip the contents.
 
 2. Launching Shder from command line:
+   
    Open a terminal/console/command prompt, change to the Shdr-master directory. Run the following commands,   
 
    Install Electron locally:
@@ -12,7 +13,8 @@ Instructions to run and test:
          npm install --save-dev electron
    
    If you get a permissions issue with the above command try running this:
-   sudo npm install electron --unsafe-perm=true
+   
+         sudo npm install electron --unsafe-perm=true
    
    Install Electron globally:
    
