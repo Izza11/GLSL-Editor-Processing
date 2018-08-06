@@ -133,7 +133,7 @@ public class HelloTool implements Tool {
     	try {
 			while ((str=br.readLine())!=null){
 				if(str.contains(keyword)) {
-					System.out.println(str);
+					//System.out.println(str);
 					fragName = shaderList[0].getName();
 					vertName = shaderList[1].getName();
 					break;
@@ -150,31 +150,45 @@ public class HelloTool implements Tool {
     	
     	dataPath = dataPath.replace("\\", "/"); // because javascript requires backward slash
     	dataPath = dataPath + ";" + fragName + ";" + vertName + ";!";
-    	System.out.println(dataPath);
+    	System.out.println("Path being sent is: " + dataPath);
     	
     }
     
     ClientHandler clientHandler =  new ClientHandler(dataPath);
     clientHandler.start();
 
-   /*
+    // Call the Shdr.exe
+    String OS = System.getProperty("os.name").toLowerCase();
+	
     if (process == null) {
     	
-    	try {
-			Process process = new ProcessBuilder("X:\\GLSL-Editor-Processing\\Shdr-master\\release-builds\\Shdr-win32-ia32\\Shdr.exe").start();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	if (OS.indexOf("win") >= 0) {
+    		try {
+    			//Edit path for Shdr.exe for windows
+    			Process process = new ProcessBuilder("X:\\GLSL-Editor-Processing\\Shdr-master\\release-builds\\Shdr-win32-ia32\\Shdr.exe").start();
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    	} else if (OS.indexOf("mac") >= 0) {
+    		
+    		try {
+    			//Process process = new ProcessBuilder("Give path to Shdr.exe for Mac").start();
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    		
+    	} 	
     	
     }
-    */
+    
     
     
     
     // Fill in author.name, author.url, tool.prettyVersion and
     // project.prettyName in build.properties for them to be auto-replaced here.
-    System.out.println("Hello Tool. ##tool.name## ##tool.prettyVersion## by ##author##");
+    System.out.println("Shader Editor. ##tool.name## ##tool.prettyVersion## by ##author##");
   }
 }
 

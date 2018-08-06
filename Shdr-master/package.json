@@ -9,11 +9,8 @@
   },
   "dependencies": {
     "argparse": "latest",
+    "uglify-js": "latest",
     "coffee-script": "latest",
-    "http-server": "latest",
-    "uglify-js": "latest"
-  },
-  "devDependencies": {
-    "electron": "^2.0.6"
+    "http-server": "latest"
   }
 }
