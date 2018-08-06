@@ -24,8 +24,12 @@ Download the repo as zip to a local directory and unzip the contents.
    Install Node.js:
    
          npm install
+     
+2. Open the 'index.js' file inside Shdr-master. Set the appropriate path for 'editor.html' in the following function:
+
+         win.loadURL('file:///X:/GLSL-Editor-Processing/Shdr-master/sources/editor.html')
    
-   Launch Shdr:
+3. Launch Shdr using by running this command while in the GLSL-Editor-Processing/Shdr-master directory
    
          npm start
    
