@@ -35,6 +35,20 @@ Download the repo as zip to a local directory and unzip the contents.
    
    The last command (npm start) should launch Shdr editor as a separate window. Close the Shdr editor.
 
+### Packaging instructions for Shdr
+
+1. Open a terminal/console/command prompt, change to the Shdr-master directory. Type and run this command:
+
+   #### For Windows:
+   
+         electron-packager . Shdr --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds
+         
+   #### For MacOS:
+   
+         electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds
+   
+   Running this command would create a folder by the name of 'release-builds' inside the Shdr-master directory, which would contain the    Shdr.exe. The path to Shdr.exe needs to be given to "Shader Editor" tool later as you proceed. 
+
 ### Build instructions for processing core and processing tool
 1. Install Apache Ant
 
