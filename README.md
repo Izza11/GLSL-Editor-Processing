@@ -8,19 +8,23 @@ Instructions to run and test:
    Open a terminal/console/command prompt, change to the Shdr-master directory. Run the following commands,   
 
    Install Electron locally:
-   npm install --save-dev electron
+   
+         npm install --save-dev electron
    
    If you get a permissions issue with the above command try running this:
    sudo npm install electron --unsafe-perm=true
    
    Install Electron globally:
-   npm install electron -g
+   
+         npm install electron -g
    
    Install Node.js:
-   npm install
+   
+         npm install
    
    Launch Shdr:
-   npm start
+   
+         npm start
    
    The last command (npm start) should launch Shdr editor as a separate window. Close the Shdr editor.
 
@@ -41,11 +45,11 @@ Instructions to run and test:
 
 4. Launching Processing from command line
 
-   In your terminal/console/command prompt, change to the 'GLSL-Editor-Processing/processing/build' directory and run the following commands:
+   In your terminal/console/command prompt, change to the 'GLSL-Editor-Processing/processing/build' directory and run the following        commands:
    
-   ant clean
-   ant build
-   ant run
+         ant clean
+         ant build
+         ant run
    
    The last command should launch the PDE.
    
@@ -53,11 +57,11 @@ Instructions to run and test:
    
 4. Once the sketch is running, open the 'Shader Tool' from the Tools menu. (Make sure you have either saved your sketch or have an          existing sketch opened before you run the tool or you will be asked to save your sketch.) Successful run should print this in            console: 
 
-    "Server started. Waiting for clients to connect.."
+         "Server started. Waiting for clients to connect.."
 
 4. Next, in your terminal/console/command prompt, change to the 'GLSL-Editor-Processin/Shdr-master' directory. Type and Run this            command: 
 
-    npm start
+         npm start
 
   This should launch Shdr as a separate window with a text editor on the left and a model of a 3D monkey on the right. Once that happens   you should see these printed messages:
 
