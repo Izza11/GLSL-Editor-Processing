@@ -39,11 +39,11 @@ Instructions to run and test:
 
 3. Build the processing-tool-editor project:
 
-    # Using Eclipse:
+    ### Using Eclipse:
     
     Follow the necessary download requirements for the tool template [here](https://github.com/processing/processing-tool-template).         After successful compilation you should see "Shader Tool" in the Tools dropdown inside the PDE.
 
-    # Using command line:
+    ### Using command line:
     
     Open a terminal/console/command prompt, change to the resources directory inside processing-tool-editor folder, and type and run the     command 'ant'. This will build and install the tool and you should see "Shader Tool" in the Tools dropdown inside the PDE.
 
