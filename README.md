@@ -25,7 +25,7 @@ Download the repo as zip to a local directory and unzip the contents.
    
          npm install
      
-2. Open the 'index.js' file inside Shdr-master. Set the appropriate path for 'editor.html' in the following function:
+2. Open and edit the 'index.js' file inside Shdr-master. Set the appropriate path for 'editor.html' in the following function:
 
          win.loadURL('file:///X:/GLSL-Editor-Processing/Shdr-master/sources/editor.html')
    
@@ -35,7 +35,7 @@ Download the repo as zip to a local directory and unzip the contents.
    
    The last command (npm start) should launch Shdr editor as a separate window. Close the Shdr editor.
 
-### Build instructions for processing
+### Build instructions for processing core and processing tool
 1. Install Apache Ant
 
     On Windows and Linux, use the installation instructions(http://ant.apache.org/manual/)
@@ -47,11 +47,23 @@ Download the repo as zip to a local directory and unzip the contents.
 
     #### Using Eclipse:
     
-    Follow the necessary download requirements for the tool template [here](https://github.com/processing/processing-tool-template).         After successful compilation you should see "Shader Tool" in the Tools dropdown inside the PDE.
+    1. Open the processing-tool-editor project in Elipse. 
+    
+    2. Set the appropriate classpath.local.location in build.properties in resources folder. Currently it is set to this:
+    
+            classpath.local.location=X:/GLSL-Editor-Processing/processing-tool-editor/lib
+            
+    3. Compile using Ant:
+    
+      - From the menu bar, choose Window → Show View → Ant. A tab with the title "Ant" will pop up on the right side of your                     Eclipse editor.
+      - Drag the resources/build.xml file in there, and a new item "ProcessingTools" will appear.
+      - Press the "Play" button inside the "Ant" tab.
+    
+    After successful compilation you should see "Shader Editor" in the Tools dropdown inside the PDE.
 
     #### Using command line:
     
-    Open a terminal/console/command prompt, change to the resources directory inside processing-tool-editor folder, and type and run the     command 'ant'. This will build and install the tool and you should see "Shader Tool" in the Tools dropdown inside the PDE.
+    Open a terminal/console/command prompt, change to the resources directory inside processing-tool-editor folder, and type and run the     command 'ant'. This will build and install the tool and you should see "Shader Editor" in the Tools dropdown inside the PDE.
 
 3. Launching Processing from command line
 
