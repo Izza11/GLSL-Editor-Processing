@@ -84,6 +84,7 @@ const client = net.createConnection({ port: 25000 }, () => {
 var recPath = "";
 var sendPath = false;
 
+// client.on means receiving data from server
 client.on('data', function(data) {
 
   var d = data.toString();
@@ -97,8 +98,6 @@ client.on('data', function(data) {
 
   }
   
-  
-    //client.write('DATA: ' + data);
     // Close the client socket completely
     //client.destroy();
     

@@ -960,14 +960,12 @@ public long getShaderFileTimeStamp(String shdrFileName) {
     if (CurFragFileTime > fragOldtime) {
       fragOldtime = CurFragFileTime;
       ShdrFileEdited = true;
-      System.out.println("Shdr files were changed recompiled");
       setFragmentShader(fragmentFilename); // in order to upload contents of new fragment shader into program, otherwise changes are not read
     }
 
     if (CurVertFileTime > vertOldtime) {
       vertOldtime = CurVertFileTime;
       ShdrFileEdited = true;
-      System.out.println("Shdr files were changed recompiled");
       setVertexShader(vertexFilename); // in order to upload contents of new vertex shader into program, otherwise changes are not read
     }
 
@@ -1067,8 +1065,10 @@ public long getShaderFileTimeStamp(String shdrFileName) {
     pgl.getShaderiv(glVertex, PGL.COMPILE_STATUS, intBuffer);
     boolean compiled = intBuffer.get(0) == 0 ? false : true;
     if (!compiled) {
-      PGraphics.showException("Cannot compile vertex shader:\n" +
-                              pgl.getShaderInfoLog(glVertex));
+      if (!ShdrFileEdited) {
+        PGraphics.showException("Cannot compile vertex shader:\n" +
+          pgl.getShaderInfoLog(glVertex));
+      }
       return false;
     } else {
       return true;
@@ -1086,8 +1086,10 @@ public long getShaderFileTimeStamp(String shdrFileName) {
     pgl.getShaderiv(glFragment, PGL.COMPILE_STATUS, intBuffer);
     boolean compiled = intBuffer.get(0) == 0 ? false : true;
     if (!compiled) {
-      PGraphics.showException("Cannot compile fragment shader:\n" +
-                              pgl.getShaderInfoLog(glFragment));
+      if (!ShdrFileEdited) {
+        PGraphics.showException("Cannot compile fragment shader:\n" +
+          pgl.getShaderInfoLog(glFragment));
+      }
       return false;
     } else {
       return true;

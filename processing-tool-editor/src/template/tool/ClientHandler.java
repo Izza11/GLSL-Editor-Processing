@@ -3,6 +3,7 @@ package template.tool;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.InputStream;
 import java.net.ServerSocket;
@@ -13,6 +14,11 @@ public class ClientHandler extends Thread {
 	   ServerSocket serverSocket;
 	   Runnable clientHandler;
 	   String dataPath;
+	   
+	   InputStream is = null;
+	   InputStreamReader isr = null;
+	   BufferedReader br = null;	   	
+	   DataOutputStream outToClient = null;
 	   
 	   
 	   ClientHandler (String path) {
@@ -29,18 +35,18 @@ public class ClientHandler extends Thread {
 		        int port = 25000;
 		        if (serverSocket == null) {         
 		          serverSocket = new ServerSocket(port);
-		          System.out.println("Server started. Waiting for clients to connect...");
+		          System.out.println("Server started. Waiting for CLIENTSSS to connect...");
 		        }
 		        socket = serverSocket.accept();
+
+		        int inputStreamAvailable = 1;
 		        
-		        while (true) {
+		        while (inputStreamAvailable == 1) {
+		        	is = socket.getInputStream();
+		        	isr = new InputStreamReader(is);
+		        	br = new BufferedReader(isr);
 		        	
-		        	
-		        	InputStream is = socket.getInputStream();
-		        	InputStreamReader isr = new InputStreamReader(is);
-		        	BufferedReader br = new BufferedReader(isr);
-		        	
-		        	DataOutputStream outToClient = new DataOutputStream(socket.getOutputStream());
+		        	outToClient = new DataOutputStream(socket.getOutputStream());
 		        	
 		        	String message = br.readLine();
 		        	System.out.println("Message received from client is " + message + "\n");
@@ -48,27 +54,31 @@ public class ClientHandler extends Thread {
 		        	outToClient.flush();
 		        	outToClient.writeBytes(dataPath);
 		        	outToClient.flush();
-		        	
-		        	
-		        	
+		        	inputStreamAvailable = is.available();
+		        			        	
 		        }
-
-		         
 		    }
+		   
 		    catch (Exception e)
-		    {
-		        e.printStackTrace();
+		    {	            
+		        e.printStackTrace();		    	
 		    }
 		    finally
 		    {
 		        try
 		        {
 		            socket.close();
+		            serverSocket.close();
+		            is.close();
+		            isr.close();
+		            br.close();
+		            outToClient.close();		            
 		        }
-		        catch(Exception e){}
+		        catch(Exception e)
+		        {
+		        	e.printStackTrace();		        	
+		        }
 		    }
-
-
 	       
 	    }
 	}

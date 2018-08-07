@@ -7,7 +7,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/core.jar"/>
-	<classpathentry kind="lib" path="lib/pde.jar"/>
+	<classpathentry kind="lib" path="X:/GLSL-Editor-Processing/processing-tool-editor/lib/core.jar"/>
+	<classpathentry kind="lib" path="X:/GLSL-Editor-Processing/processing-tool-editor/lib/pde.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
