@@ -67,7 +67,7 @@ Download the repo as zip to a local directory and unzip the contents.
     
             classpath.local.location=X:/GLSL-Editor-Processing/processing-tool-editor/lib
             
-    3. Set the appropriate path to Shdr.exe in HelloTool.java inside the run() function as shown below 
+    3. Set the appropriate path to Shdr.exe in ShaderTool.java inside the run() function as shown below 
     
             Process process = new ProcessBuilder("X:\\GLSL-Editor-Processing\\Shdr-master\\release-builds\\Shdr-win32-ia32\\Shdr.exe").start();
             
