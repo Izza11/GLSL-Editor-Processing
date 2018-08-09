@@ -41,6 +41,10 @@ Download the repo as zip to a local directory and unzip the contents.
 
    #### For Windows:
    
+         npm install electron-packager --save-dev
+         
+   And then this:
+   
          electron-packager . Shdr --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds
          
    #### For MacOS:
