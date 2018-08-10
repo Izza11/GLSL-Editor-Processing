@@ -2,7 +2,9 @@
 
 Instructions to run and test:
 
-Download the repo as zip to a local directory and unzip the contents.
+1. Download the repo as zip to a local directory and unzip the contents.
+
+2. Download(https://nodejs.org/en/download/) Node.js if not already installed on your computer.
 
 ### Build instructions for Shdr
 1. Launching Shdr from command line:
