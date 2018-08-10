@@ -53,7 +53,7 @@ Instructions to run and test:
    
          electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds
    
-   Running this command would create a folder by the name of 'release-builds' inside the Shdr-master directory, which would contain the    Shdr.exe. The path to Shdr.exe needs to be given to "Shader Editor" tool later as you proceed. 
+   Running this command would create a folder by the name of 'release-builds' inside the Shdr-master directory, which would contain the    Shdr.exe. The pacakaged Shdr folder inside release-builds needs to be renamed and placed inside Processing tools directory later.
 
 ### Build instructions for processing core and processing tool
 1. Install Apache Ant
