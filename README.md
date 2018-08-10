@@ -4,7 +4,7 @@ Instructions to run and test:
 
 1. Download the repo as zip to a local directory and unzip the contents.
 
-2. Download[(https://nodejs.org/en/download/)] Node.js if not already installed on your computer.
+2. [Download Node.js](https://nodejs.org/en/download/) if not already installed on your computer.
 
 ### Build instructions for Shdr
 1. Launching Shdr from command line:
@@ -58,9 +58,9 @@ Instructions to run and test:
 ### Build instructions for processing core and processing tool
 1. Install Apache Ant
 
-    On Windows and Linux, use the installation instructions[(http://ant.apache.org/manual/)]
+    On Windows and Linux, use the [installation instructions](http://ant.apache.org/manual/)
     Or on Ubuntu 16.04, it's just a matter of sudo apt-get install ant
-    On macOS, it’s much easier to install via Homebrew or MacPorts[(https://stackoverflow.com/questions/3222804/how-can-i-install-apache-ant-on-mac-os-x#3222993)].
+    On macOS, it’s much easier to install via [Homebrew or MacPorts](https://stackoverflow.com/questions/3222804/how-can-i-install-apache-ant-on-mac-os-x#3222993).
     Ant 1.8 or later is required.
 
 2. Build the processing-tool-editor project:
