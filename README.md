@@ -2,7 +2,9 @@
 
 Instructions to run and test:
 
-Download the repo as zip to a local directory and unzip the contents.
+1. Download the repo as zip to a local directory and unzip the contents.
+
+2. [Download Node.js](https://nodejs.org/en/download/) if not already installed on your computer.
 
 ### Build instructions for Shdr
 1. Launching Shdr from command line:
@@ -41,6 +43,10 @@ Download the repo as zip to a local directory and unzip the contents.
 
    #### For Windows:
    
+         npm install electron-packager --save-dev
+         
+   And then run this ('--arch=ia32' for Windows 32-bit OR '--arch=x64' for Windows 64-bit):
+   
          electron-packager . Shdr --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds
          
    #### For MacOS:
@@ -52,9 +58,9 @@ Download the repo as zip to a local directory and unzip the contents.
 ### Build instructions for processing core and processing tool
 1. Install Apache Ant
 
-    On Windows and Linux, use the installation instructions(http://ant.apache.org/manual/)
+    On Windows and Linux, use the [installation instructions](http://ant.apache.org/manual/)
     Or on Ubuntu 16.04, it's just a matter of sudo apt-get install ant
-    On macOS, it’s much easier to install via Homebrew or MacPorts(https://stackoverflow.com/questions/3222804/how-can-i-install-apache-ant-on-mac-os-x#3222993).
+    On macOS, it’s much easier to install via [Homebrew or MacPorts](https://stackoverflow.com/questions/3222804/how-can-i-install-apache-ant-on-mac-os-x#3222993).
     Ant 1.8 or later is required.
 
 2. Build the processing-tool-editor project:
@@ -63,15 +69,17 @@ Download the repo as zip to a local directory and unzip the contents.
     
     1. Open the processing-tool-editor project in Elipse. 
     
-    2. Set the appropriate classpath.local.location in build.properties in resources folder. Currently it is set to this:
+    2. Right click the project in the left panel and go to properties-> Java Build Path-> Libraries. Add external jars(core.jar and            pde.jar) from the lib folder in the processing-tool-editor project directory.
+    
+    3. Set the appropriate classpath.local.location in build.properties in resources folder. Currently it is set to this:
     
             classpath.local.location=X:/GLSL-Editor-Processing/processing-tool-editor/lib
             
-    3. Set the appropriate path to Shdr.exe in ShaderTool.java inside the run() function as shown below 
+    4. Set the appropriate path to Shdr.exe in ShaderTool.java inside the run() function as shown below 
     
             Process process = new ProcessBuilder("X:\\GLSL-Editor-Processing\\Shdr-master\\release-builds\\Shdr-win32-ia32\\Shdr.exe").start();
             
-    4. Compile using Ant:
+    5. Compile using Ant:
     
       - From the menu bar, choose Window → Show View → Ant. A tab with the title "Ant" will pop up on the right side of your                     Eclipse editor.
       - Drag the resources/build.xml file in there, and a new item "ProcessingTools" will appear.
