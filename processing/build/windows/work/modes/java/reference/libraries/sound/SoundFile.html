@@ -95,6 +95,7 @@ void draw() {
 
 This is a Soundfile Player which allows to play back and manipulate soundfiles. Supported formats are: WAV, AIF/AIFF, MP3.
 
+MP3 decoding can be very slow on ARM processors (Android/Raspberry Pi), we generally recommend you use lossless WAV or AIF files.
 </td>
 	</tr>
 
@@ -102,82 +103,52 @@ This is a Soundfile Player which allows to play back and manipulate soundfiles. 
 
 	<tr class=""><th scope="row">Methods</th><td><table cellpadding="0" cellspacing="0" border="0"><tr class="">
 
-	<th scope="row"><a href="SoundFile_frames_.html">frames()</a></th>
-	<td>Returns the number of frames/samples of the sound file.</td>
-</tr>
-<tr class="">
-
-	<th scope="row"><a href="SoundFile_sampleRate_.html">sampleRate()</a></th>
-	<td>Returns the sample rate of the soundfile.</td>
-</tr>
-<tr class="">
-
-	<th scope="row"><a href="SoundFile_channels_.html">channels()</a></th>
-	<td>Returns the number of channels in the soundfile.</td>
+	<th scope="row"><a href="SoundFile_cue_.html">cue()</a></th>
+	<td>Cues the playhead to a fixed position in the soundfile.</td>
 </tr>
 <tr class="">
 
 	<th scope="row"><a href="SoundFile_duration_.html">duration()</a></th>
-	<td>Returns the duration of the the soundfile.</td>
+	<td>Returns the duration of the soundfile in seconds.</td>
 </tr>
 <tr class="">
 
-	<th scope="row"><a href="SoundFile_play_.html">play()</a></th>
-	<td>Starts the playback of a soundfile. Only plays the soundfile once.</td>
+	<th scope="row"><a href="SoundFile_frames_.html">frames()</a></th>
+	<td>Returns the number of frames of this soundfile.</td>
 </tr>
 <tr class="">
 
 	<th scope="row"><a href="SoundFile_loop_.html">loop()</a></th>
-	<td>Starts the playback of a soundfile to loop.</td>
+	<td>Starts playback which will loop at the end of the soundfile.</td>
 </tr>
 <tr class="">
 
 	<th scope="row"><a href="SoundFile_jump_.html">jump()</a></th>
-	<td>Jump to a specific position in the file while continuing to play.</td>
+	<td>Jump to a specific position in the soundfile while continuing to play.</td>
 </tr>
 <tr class="">
 
-	<th scope="row"><a href="SoundFile_cue_.html">cue()</a></th>
-	<td>Cues the playhead to a fixed position in the soundfile. Note that the time parameter supports only integer values.</td>
-</tr>
-<tr class="">
-
-	<th scope="row"><a href="SoundFile_set_.html">set()</a></th>
-	<td>Set multiple parameters at once</td>
-</tr>
-<tr class="">
-
-	<th scope="row"><a href="SoundFile_pan_.html">pan()</a></th>
-	<td>Move the sound in a stereo panorama, only supports Mono Files</td>
+	<th scope="row"><a href="SoundFile_play_.html">play()</a></th>
+	<td>Starts the playback of the soundfile. Only plays the soundfile once.</td>
 </tr>
 <tr class="">
 
 	<th scope="row"><a href="SoundFile_rate_.html">rate()</a></th>
-	<td>Change the playback rate of the soundfile.</td>
-</tr>
-<tr class="">
-
-	<th scope="row"><a href="SoundFile_amp_.html">amp()</a></th>
-	<td>Changes the amplitude/volume of the player.</td>
-</tr>
-<tr class="">
-
-	<th scope="row"><a href="SoundFile_add_.html">add()</a></th>
-	<td>Offset the output of the player by given value</td>
+	<td>Set the playback rate of the soundfile.</td>
 </tr>
 <tr class="">
 
 	<th scope="row"><a href="SoundFile_stop_.html">stop()</a></th>
-	<td>Stops the player</td>
+	<td>Stops the playback.</td>
 </tr></table></td></tr>
 
-	<tr class=""><th scope="row">Constructor</th><td><pre>SoundFile(<kbd>theParent</kbd>, <kbd>path</kbd>)
+	<tr class=""><th scope="row">Constructor</th><td><pre>SoundFile(<kbd>parent</kbd>, <kbd>path</kbd>)
 </pre></td></tr>
 
 
 </table>
 
-Updated on July 26, 2018 06:53:32pm EDT<br /><br />
+Updated on August 10, 2018 01:24:33pm EDT<br /><br />
 
 <!-- Creative Commons License -->
 

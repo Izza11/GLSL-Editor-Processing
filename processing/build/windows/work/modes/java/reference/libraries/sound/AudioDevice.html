@@ -48,8 +48,8 @@
 
 			<div id="navigation">
 					<div class="navBar" id="mainnav">
-	<a href="../../index.html" >Language</a><br>
-	<a href="../../libraries/index.html" class='active'>Libraries</a><br>
+	<a href="../../index.html" class='active'>Language</a><br>
+	<a href="../../libraries/index.html" >Libraries</a><br>
 	<a href="../../tools/index.html">Tools</a><br>
 	<a href="../../environment/index.html">Environment</a><br>
 </div>
@@ -97,13 +97,25 @@ Audio Device allows for configuring the audio server. If you need a low latency 
 
 
 
-	<tr class=""><th scope="row">Constructor</th><td><pre>AudioDevice(<kbd>theParent</kbd>, <kbd>sampleRate</kbd>, <kbd>bufferSize</kbd>)
+	<tr class=""><th scope="row">Constructor</th><td><pre>
+AudioDevice(parent, samplerate, buffersize)
 </pre></td></tr>
-
-
+	<tr class="">	<th scope="row">Parameters</th><td><table cellpadding="0" cellspacing="0" border="0"><tr class="">
+<th scope="row" class="code">parent</th>
+<td>PApplet: typically use "this"</td>
+</tr>
+<tr class="">
+<th scope="row" class="code">sampleRate</th>
+<td>int: samplerate (i.e. 44100/48000/96000) </td>
+</tr>
+<tr class="">
+<th scope="row" class="code">bufferSize</th>
+<td>int: buffersize (i.e. 32/64/128 ..) </td>
+</tr></table></td>	</tr>
+	<tr class=""><th scope="row">Related</th><td><a class="code" href="Sound.html">Sound</a><br /></td></tr>
 </table>
 
-Updated on July 26, 2018 06:53:32pm EDT<br /><br />
+Updated on August 10, 2018 01:24:34pm EDT<br /><br />
 
 <!-- Creative Commons License -->
 

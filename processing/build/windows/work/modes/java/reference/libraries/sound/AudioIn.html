@@ -104,47 +104,29 @@ AudioIn let's you grab the audio input from your soundcard.
 
 	<tr class=""><th scope="row">Methods</th><td><table cellpadding="0" cellspacing="0" border="0"><tr class="">
 
-	<th scope="row"><a href="AudioIn_start_.html">start()</a></th>
-	<td>Starts the input stream.</td>
+	<th scope="row"><a href="AudioIn_play_.html">play()</a></th>
+	<td>Start capturing the input stream and route it to the audio output</td>
 </tr>
 <tr class="">
 
-	<th scope="row"><a href="AudioIn_play_.html">play()</a></th>
-	<td>Start the Input Stream and route it to the Audio Hardware Output</td>
+	<th scope="row"><a href="AudioIn_start_.html">start()</a></th>
+	<td>Start the input stream without routing it to the audio output. This is useful
+ if you only want to perform audio analysis based on the microphone input.</td>
 </tr>
 <tr class="">
 
 	<th scope="row"><a href="AudioIn_set_.html">set()</a></th>
-	<td>Set multiple parameters at once.</td>
-</tr>
-<tr class="">
-
-	<th scope="row"><a href="AudioIn_amp_.html">amp()</a></th>
-	<td>Change the amplitude/volume of the input steam.</td>
-</tr>
-<tr class="">
-
-	<th scope="row"><a href="AudioIn_add_.html">add()</a></th>
-	<td>Offset the output of the input stream by given value</td>
-</tr>
-<tr class="">
-
-	<th scope="row"><a href="AudioIn_pan_.html">pan()</a></th>
-	<td>Move the sound in a stereo panorama</td>
-</tr>
-<tr class="">
-
-	<th scope="row"><a href="AudioIn_stop_.html">stop()</a></th>
-	<td>Stop the input stream.</td>
+	<td>Sets amplitude, add and pan position with one method.</td>
 </tr></table></td></tr>
 
-	<tr class=""><th scope="row">Constructor</th><td><pre>AudioIn(<kbd>theParent</kbd>, <kbd>in</kbd>)
+	<tr class=""><th scope="row">Constructor</th><td><pre>AudioIn(<kbd>parent</kbd>)
+AudioIn(<kbd>parent</kbd>, <kbd>in</kbd>)
 </pre></td></tr>
 
 
 </table>
 
-Updated on July 26, 2018 06:53:32pm EDT<br /><br />
+Updated on August 10, 2018 01:24:34pm EDT<br /><br />
 
 <!-- Creative Commons License -->
 

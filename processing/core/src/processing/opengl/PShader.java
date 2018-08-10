@@ -1065,7 +1065,7 @@ public long getShaderFileTimeStamp(String shdrFileName) {
     pgl.getShaderiv(glVertex, PGL.COMPILE_STATUS, intBuffer);
     boolean compiled = intBuffer.get(0) == 0 ? false : true;
     if (!compiled) {
-      if (!ShdrFileEdited) {
+      if (!ShdrFileEdited) {  // new check added to avoid random compile error when Shdr is edited
         PGraphics.showException("Cannot compile vertex shader:\n" +
           pgl.getShaderInfoLog(glVertex));
       }
@@ -1086,7 +1086,7 @@ public long getShaderFileTimeStamp(String shdrFileName) {
     pgl.getShaderiv(glFragment, PGL.COMPILE_STATUS, intBuffer);
     boolean compiled = intBuffer.get(0) == 0 ? false : true;
     if (!compiled) {
-      if (!ShdrFileEdited) {
+      if (!ShdrFileEdited) { // new check added to avoid random compile error when Shdr is edited
         PGraphics.showException("Cannot compile fragment shader:\n" +
           pgl.getShaderInfoLog(glFragment));
       }
