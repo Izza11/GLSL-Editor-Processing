@@ -75,7 +75,7 @@ Instructions to run and test:
     
             classpath.local.location=X:/GLSL-Editor-Processing/processing-tool-editor/lib
             
-    4. Set the appropriate path to Shdr.exe in ShaderTool.java inside the run() function as shown below 
+    4. (Ignore for now)Set the appropriate path to Shdr.exe in ShaderTool.java inside the run() function as shown below 
     
             Process process = new ProcessBuilder("X:\\GLSL-Editor-Processing\\Shdr-master\\release-builds\\Shdr-win32-ia32\\Shdr.exe").start();
             
@@ -86,6 +86,12 @@ Instructions to run and test:
       - Press the "Play" button inside the "Ant" tab.
     
     After successful compilation you should see "Shader Editor" in the Tools dropdown inside the PDE.
+    
+    6. Go to the Sketchbook folder in your computer(by default inside Documents) and locate the ShaderEditor folder inside tools. Create     a new folder 'app' and place the packaged Shdr folder (see end of ##### Packaging instructions for Shdr) inside release-builds
+    inside 'app'. Your final path should look like this:
+    
+         ...\Processing\tools\ShaderEditor\app\win32\Shdr.exe
+    
 
     #### Using command line:
     
@@ -96,8 +102,10 @@ Instructions to run and test:
             'ant' 
     
     This will build and install the tool and you should see "Shader Editor" in the Tools dropdown inside the PDE.
+    
+    3. Follow point (6) under 'Using Eclipse'
 
-3. Launching PDE (Processing Development Environment) from command line
+4. Launching PDE (Processing Development Environment) from command line
 
    In your terminal/console/command prompt, change to the 'GLSL-Editor-Processing/processing/build' directory and run the following        commands:
    
