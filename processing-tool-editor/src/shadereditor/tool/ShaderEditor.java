@@ -179,7 +179,7 @@ public class ShaderEditor implements Tool {
     	} else if (OS.indexOf("mac") >= 0) {
     		
     		try {
-    			Process process = new ProcessBuilder("Give path to Shdr.exe for Mac").start();
+    			Process process = new ProcessBuilder(toolFolder + "\\ShaderEditor\\app\\mac\\Shdr.app\\Contents\\MacOS\\Shdr").start();
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();

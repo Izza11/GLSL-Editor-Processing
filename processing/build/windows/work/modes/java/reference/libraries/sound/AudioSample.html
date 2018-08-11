@@ -112,6 +112,11 @@ This is just a placeholder to see which class descriptions are added by the refe
 
 	<th scope="row"><a href="AudioSample_sampleRate_.html">sampleRate()</a></th>
 	<td>Returns the underlying sample rate of the audiosample.</td>
+</tr>
+<tr class="">
+
+	<th scope="row"><a href="AudioSample_read_.html">read()</a></th>
+	<td>Read some frames of this audio sample into the given array.</td>
 </tr></table></td></tr>
 
 	<tr class=""><th scope="row">Constructor</th><td><pre>AudioSample(<kbd>parent</kbd>, <kbd>frames</kbd>)
@@ -132,16 +137,22 @@ AudioSample(<kbd>parent</kbd>, <kbd>data</kbd>, <kbd>stereo</kbd>, <kbd>frameRat
 </tr>
 <tr class="">
 <th scope="row" class="code">stereo</th>
-<td>boolean: boolean: whether to treat the audiosample as 2-channel (stereo) or not.</td>
+<td>boolean: whether to treat the audiosample as 2-channel (stereo) or not.</td>
 </tr>
 <tr class="">
 <th scope="row" class="code">frameRate</th>
 <td>int: The underlying frame rate of the sample (default: 44100)</td>
+</tr>
+<tr class="">
+<th scope="row" class="code">data</th>
+<td>float[]: an array of float values to be used as this audiosample's sound
+            data. The audiosample will consequently have as many frames as the
+            length of the given array.</td>
 </tr></table></td>	</tr>
 	<tr class=""><th scope="row">Related</th><td><a class="code" href="libraries/sound/SoundFile.html">SoundFile</a><br /></td></tr>
 </table>
 
-Updated on August 10, 2018 01:24:34pm EDT<br /><br />
+Updated on August 10, 2018 04:21:14pm EDT<br /><br />
 
 <!-- Creative Commons License -->
 
