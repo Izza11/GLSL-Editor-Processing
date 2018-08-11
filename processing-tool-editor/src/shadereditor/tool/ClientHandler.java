@@ -35,7 +35,7 @@ public class ClientHandler extends Thread {
 		        int port = 25000;
 		        if (serverSocket == null) {         
 		          serverSocket = new ServerSocket(port);
-		          System.out.println("Server started. Waiting for CLIENTSSS to connect...");
+		          System.out.println("Server started. Waiting for Shader Editor to connect...");
 		        }
 		        socket = serverSocket.accept();
 
@@ -49,7 +49,7 @@ public class ClientHandler extends Thread {
 		        	outToClient = new DataOutputStream(socket.getOutputStream());
 		        	
 		        	String message = br.readLine();
-		        	System.out.println("Message received from client is " + message + "\n");
+		        	System.out.println("Shader Editor says hello " + message + "\n");
 		        	
 		        	outToClient.flush();
 		        	outToClient.writeBytes(dataPath);

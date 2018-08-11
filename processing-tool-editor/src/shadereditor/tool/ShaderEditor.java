@@ -171,7 +171,12 @@ public class ShaderEditor implements Tool {
     	if (OS.indexOf("win") >= 0) {
     		try {
     			//Edit path for Shdr.exe for windows
-    			Process process = new ProcessBuilder(toolFolder + "\\ShaderEditor\\app\\win32\\Shdr.exe").start();
+    			if (System.getenv("ProgramFiles(x86)") != null) {
+    				Process process = new ProcessBuilder(toolFolder + "\\ShaderEditor\\app\\win64\\Shdr.exe").start();
+    			} else {
+    				Process process = new ProcessBuilder(toolFolder + "\\ShaderEditor\\app\\win32\\Shdr.exe").start();
+    			}
+    			
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
