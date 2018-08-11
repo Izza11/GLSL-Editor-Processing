@@ -172,9 +172,9 @@ public class ShaderEditor implements Tool {
     		try {
     			//Edit path for Shdr.exe for windows
     			if (System.getenv("ProgramFiles(x86)") != null) {
-    				Process process = new ProcessBuilder(toolFolder + "\\ShaderEditor\\app\\win64\\Shdr.exe").start();
+    				Process process = new ProcessBuilder(toolFolder + "//ShaderEditor//app//win64//Shdr.exe").start();
     			} else {
-    				Process process = new ProcessBuilder(toolFolder + "\\ShaderEditor\\app\\win32\\Shdr.exe").start();
+    				Process process = new ProcessBuilder(toolFolder + "//ShaderEditor//app//win32//Shdr.exe").start();
     			}
     			
     		} catch (IOException e) {
@@ -184,7 +184,7 @@ public class ShaderEditor implements Tool {
     	} else if (OS.indexOf("mac") >= 0) {
     		
     		try {
-    			Process process = new ProcessBuilder(toolFolder + "\\ShaderEditor\\app\\mac\\Shdr.app\\Contents\\MacOS\\Shdr").start();
+    			Process process = new ProcessBuilder(toolFolder + "//ShaderEditor//app//mac//Shdr.app//Contents//MacOS//Shdr").start();
     		} catch (IOException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();
