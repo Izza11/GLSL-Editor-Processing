@@ -117,8 +117,40 @@ If you want to pre-load your audio sample with an audio file from disk you can d
 </tr>
 <tr class="">
 
+	<th scope="row"><a href="AudioSample_cue_.html">cue()</a></th>
+	<td>Cues the playhead to a fixed position in the audiosample.</td>
+</tr>
+<tr class="">
+
+	<th scope="row"><a href="AudioSample_duration_.html">duration()</a></th>
+	<td>Returns the duration of the audiosample in seconds.</td>
+</tr>
+<tr class="">
+
 	<th scope="row"><a href="AudioSample_frames_.html">frames()</a></th>
 	<td>Returns the number of frames of the audiosample.</td>
+</tr>
+<tr class="">
+
+	<th scope="row"><a href="AudioSample_jump_.html">jump()</a></th>
+	<td>Jump to a specific position in the audiosample while continuing to play.</td>
+</tr>
+<tr class="">
+
+	<th scope="row"><a href="AudioSample_play_.html">play()</a></th>
+	<td>Starts the playback of the audiosample. Only plays to the end of the
+ audiosample once.</td>
+</tr>
+<tr class="">
+
+	<th scope="row"><a href="AudioSample_rate_.html">rate()</a></th>
+	<td>Set the playback rate of the audiosample.</td>
+</tr>
+<tr class="">
+
+	<th scope="row"><a href="AudioSample_resize_.html">resize()</a></th>
+	<td>Resizes the underlying buffer of the audiosample to the given number of
+ frames.</td>
 </tr>
 <tr class="">
 
@@ -127,9 +159,13 @@ If you want to pre-load your audio sample with an audio file from disk you can d
 </tr>
 <tr class="">
 
+	<th scope="row"><a href="AudioSample_pan_.html">pan()</a></th>
+	<td>Move the sound in a stereo panorama. Only works for mono audiosamples!</td>
+</tr>
+<tr class="">
+
 	<th scope="row"><a href="AudioSample_pause_.html">pause()</a></th>
-	<td>Stop the playback of the sample, but cue it to the current position. The next
- call to play() will continue playing where it left off.</td>
+	<td>Stop the playback of the sample, but cue it to the current position.</td>
 </tr>
 <tr class="">
 
@@ -156,15 +192,16 @@ AudioSample(<kbd>parent</kbd>, <kbd>data</kbd>, <kbd>stereo</kbd>, <kbd>frameRat
 </tr>
 <tr class="">
 <th scope="row" class="code">frames</th>
-<td>int: The desired number of frames for this audiosample</td>
+<td>int: the desired number of frames for this audiosample</td>
 </tr>
 <tr class="">
 <th scope="row" class="code">stereo</th>
-<td>boolean: whether to treat the audiosample as 2-channel (stereo) or not.</td>
+<td>boolean: whether to treat the audiosample as 2-channel (stereo) or not
+            (default: false)</td>
 </tr>
 <tr class="">
 <th scope="row" class="code">frameRate</th>
-<td>int: The underlying frame rate of the sample (default: 44100)</td>
+<td>int: the underlying frame rate of the sample (default: 44100)</td>
 </tr>
 <tr class="">
 <th scope="row" class="code">data</th>
@@ -175,7 +212,7 @@ AudioSample(<kbd>parent</kbd>, <kbd>data</kbd>, <kbd>stereo</kbd>, <kbd>frameRat
 	<tr class=""><th scope="row">Related</th><td><a class="code" href="libraries/sound/SoundFile.html">SoundFile</a><br /></td></tr>
 </table>
 
-Updated on August 12, 2018 05:39:38pm EDT<br /><br />
+Updated on August 13, 2018 00:02:40pm EDT<br /><br />
 
 <!-- Creative Commons License -->
 

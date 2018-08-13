@@ -100,10 +100,6 @@ client.on('data', function(data) {
 
     }
 
-    
-
-    
-
     // Close the client socket completely
     //client.destroy();
     

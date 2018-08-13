@@ -91,7 +91,7 @@ void setup() {
 
   // Create the audiosample based on the data, set framerate to play 200 oscillations/second
   sample = new AudioSample(this, sinewave, 200 * resolution);
-  sample.loop();
+  sample.play();
 }
 
 void draw() {
@@ -101,7 +101,7 @@ void mousePressed() {
   if (sample.isPlaying()) {
     sample.pause();
   } else {
-    sample.loop();
+    sample.play();
   }
 }
 </pre></div>
@@ -121,7 +121,7 @@ Stop the playback of the sample, but cue it to the current position. The next ca
 
 </table>
 
-Updated on August 12, 2018 05:39:38pm EDT<br /><br />
+Updated on August 13, 2018 00:02:40pm EDT<br /><br />
 
 <!-- Creative Commons License -->
 

@@ -85,18 +85,17 @@ void setup() {
   // Load a soundfile from the /data folder of the sketch and play it back
   file = new SoundFile(this, "sample.mp3");
   file.play();
-}      
+}
 
 void draw() {
 }
-
 </pre></div>
 </td></tr>
 
 		<tr class="">
 		<th scope="row">Description</th>
 		<td>
-Starts the playback of the soundfile. Only plays the soundfile once.
+Starts the playback of the soundfile. Only plays to the end of the soundfile once. If cue() or pause() were called previously, playback will resume from the cued position.
 </td>
 	</tr>
 
@@ -129,14 +128,14 @@ Starts the playback of the soundfile. Only plays the soundfile once.
 </tr>
 <tr class="">
 <th scope="row" class="code">cue</th>
-<td>float: position in the audiosample that the next playback or loop should
-            start from, in seconds.</td>
+<td>float: position in the audiosample that playback should start from, in
+            seconds.</td>
 </tr></table></td>	</tr>
 	<tr class=""><th scope="row">Returns</th><td class="code">void</td></tr>
 
 </table>
 
-Updated on August 12, 2018 05:39:37pm EDT<br /><br />
+Updated on August 13, 2018 00:02:40pm EDT<br /><br />
 
 <!-- Creative Commons License -->
 

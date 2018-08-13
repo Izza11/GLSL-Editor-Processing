@@ -122,19 +122,20 @@ MP3 decoding can be very slow on ARM processors (Android/Raspberry Pi), we gener
 </tr>
 <tr class="">
 
-	<th scope="row"><a href="SoundFile_loop_.html">loop()</a></th>
-	<td>Starts playback which will loop at the end of the sample.</td>
-</tr>
-<tr class="">
-
 	<th scope="row"><a href="SoundFile_jump_.html">jump()</a></th>
 	<td>Jump to a specific position in the soundfile while continuing to play.</td>
 </tr>
 <tr class="">
 
+	<th scope="row"><a href="SoundFile_pause_.html">pause()</a></th>
+	<td>Stop the playback of the file, but cue it to the current position so that the
+ next call to play() will continue playing where it left off.</td>
+</tr>
+<tr class="">
+
 	<th scope="row"><a href="SoundFile_play_.html">play()</a></th>
-	<td>Starts the playback of the soundfile from the cued position. Only plays to
- the end of the audiosample once.</td>
+	<td>Starts the playback of the soundfile. Only plays to the end of the
+ audiosample once.</td>
 </tr>
 <tr class="">
 
@@ -175,7 +176,7 @@ MP3 decoding can be very slow on ARM processors (Android/Raspberry Pi), we gener
 
 </table>
 
-Updated on August 12, 2018 05:39:37pm EDT<br /><br />
+Updated on August 13, 2018 00:02:40pm EDT<br /><br />
 
 <!-- Creative Commons License -->
 

@@ -104,7 +104,7 @@ void draw() {
   for(int i = 0; i < bands; i++){
   // The result of the FFT is normalized
   // draw the line for frequency band i scaling it up by 5 to get more amplitude.
-  line( i, height, i, height - spectrum[i]*height*5 );
+  line(i, height, i, height - spectrum[i]*height*5 );
   } 
 }
 </pre></div>
@@ -113,7 +113,7 @@ void draw() {
 		<tr class="">
 		<th scope="row">Description</th>
 		<td>
-Queries a value from the analyzer and returns a vector the size of the pre-defined number of bands. 
+Calculates the current frequency spectrum and returns it as an array with as many elements as frequency bands.
 </td>
 	</tr>
 
@@ -129,7 +129,7 @@ Queries a value from the analyzer and returns a vector the size of the pre-defin
 
 </table>
 
-Updated on August 12, 2018 05:39:37pm EDT<br /><br />
+Updated on August 13, 2018 00:02:40pm EDT<br /><br />
 
 <!-- Creative Commons License -->
 

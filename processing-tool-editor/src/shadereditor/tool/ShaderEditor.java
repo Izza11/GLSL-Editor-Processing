@@ -44,7 +44,6 @@ import processing.app.Sketch;
 public class ShaderEditor implements Tool {
   Base base;
   Process process;
-  static boolean ShaderEditorRunning = false;
   
   String[] vertex = {"uniform mat4 transform;","attribute vec4 position;", "attribute vec3 normal;", "void main()", "{", "gl_Position = transform * position;", "}"};
   String[] fragment = {"#ifdef GL_ES", "precision mediump float;", "precision mediump int;", "#endif", "void main()", "{", "  gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);", "}"};
@@ -83,8 +82,7 @@ public class ShaderEditor implements Tool {
   }
   
   public void run() {
-    // Get the currently active Editor to run the Tool on it
-	
+    // Get the currently active Editor to run the Tool on it	
     Editor editor = base.getActiveEditor();   
     Sketch sketch = editor.getSketch();
     String fragName = null;
@@ -97,8 +95,8 @@ public class ShaderEditor implements Tool {
     	//editor.handleSave(true);   	
 
         try {
-    		loadDefaultShaders(vertex, dataPath + "\\vert.glsl");
-    		loadDefaultShaders(fragment, dataPath + "\\frag.glsl");
+    		loadDefaultShaders(vertex, dataPath + "//vert.glsl");
+    		loadDefaultShaders(fragment, dataPath + "//frag.glsl");
     		fragName = "frag.glsl";
     		vertName = "vert.glsl";
     	} catch (IOException e) {
@@ -124,7 +122,6 @@ public class ShaderEditor implements Tool {
     	try {
 			while ((str=br.readLine())!=null){
 				if(str.contains(keyword)) {
-					//System.out.println(str);
 					fragName = shaderList[0].getName();
 					vertName = shaderList[1].getName();
 					break;
@@ -140,7 +137,6 @@ public class ShaderEditor implements Tool {
 		}     	
     }
     
-    dataPath = dataPath.replace("\\", "/"); // because javascript requires backward slash
 	dataPath = dataPath + ";" + fragName + ";" + vertName + ";";
 	//System.out.println("Path being sent is: " + dataPath);
 	

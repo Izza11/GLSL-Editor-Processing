@@ -12,5 +12,8 @@
     "uglify-js": "latest",
     "coffee-script": "latest",
     "http-server": "latest"
+  },
+  "devDependencies": {
+    "electron": "^2.0.7"
   }
 }

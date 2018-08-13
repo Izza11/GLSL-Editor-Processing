@@ -84,11 +84,8 @@ public class ClientHandler extends Thread {
 		        } catch(IOException e) {
 		            // local port cannot be opened, it's in use
 		        	System.out.println("Warning: Shader Editor is already running. Close the existing tool first.");
-		        	//return;
 		        }
-		        
-		        int inputStreamAvailable = 1;
-		        
+		        		        
 		        boolean finalPath = false;
 		        boolean saveSketch = true;
 		        
@@ -99,12 +96,11 @@ public class ClientHandler extends Thread {
 		        		try {
 		        			fromClient();
 		        		} catch(Exception e) {
-		        			System.out.println("caught exceptionnnnn");
+		        			e.printStackTrace();	
 		        			break;				            
 		        		}
 		        		if (!saveSketch) {
 		        			dataPath = pSketch.getDataFolder().getCanonicalPath();
-			        		dataPath = dataPath.replace("\\", "/"); // because javascript requires backward slash
 			        		dataPath = dataPath + ";" + fragName + ";" + vertName + ";";	
 			        		//System.out.println("sending New path....");
 
@@ -115,14 +111,14 @@ public class ClientHandler extends Thread {
 		        		try{
 		        			toClient(dataPath);		        			
 		        		} catch(Exception e) {
-		        			System.out.println("caught ANOTHER exceptionnnnn");
+		        			e.printStackTrace();	
 		        			break;				            
 		        		}
 		        	} else if (saveSketch && !finalPath) {
 		        		try {
 		        			fromClient();
 		        		} catch(Exception e) {
-		        			System.out.println("caught exceptionnnnn");
+		        			e.printStackTrace();	
 		        			break;				            
 		        		}
 		        		dataPath = dataPath + "temp!";
@@ -131,7 +127,7 @@ public class ClientHandler extends Thread {
 		        		try{
 		        			toClient(dataPath);		        			
 		        		} catch(Exception e) {
-		        			System.out.println("caught ANOTHER exceptionnnnn");
+		        			e.printStackTrace();	
 		        			break;				            
 		        		}
 		        				        		
@@ -139,22 +135,18 @@ public class ClientHandler extends Thread {
 		        		try {
 		        			fromClient();
 		        		} catch(Exception e) {
-		        			System.out.println("caught exceptionnnnn");
+		        			e.printStackTrace();	
 		        			break;				            
 		        		}
 		        		
 		        		try{
 		        			toClient("wait");		        			
 		        		} catch(Exception e) {
-		        			System.out.println("caught ANOTHER exceptionnnnn");
+		        			e.printStackTrace();	
 		        			break;				            
 		        		}
 		        	}
-		        	
-		        	
-		        	//inputStreamAvailable = is.available();
-		        	//System.out.println("Value of inputStream is " + is.available());
-		        			        	
+
 		        }
 		    }
 		   
@@ -166,7 +158,7 @@ public class ClientHandler extends Thread {
 		    {
 		        try
 		        {
-		        	System.out.print("Closed everything!!!!");
+		        	System.out.print("Closing Shader..");
 		        	socket.close();
 		            serverSocket.close();
 		            is.close();

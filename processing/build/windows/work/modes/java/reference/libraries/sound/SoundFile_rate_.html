@@ -84,31 +84,35 @@ void setup() {
     
   // Load a soundfile from the data folder of the sketch and play it back double the speed
   file = new SoundFile(this, "sample.mp3");
-  file.play();
+  file.loop();
   file.rate(2);
 }      
 
 void draw() {
 }
-
 </pre></div>
 </td></tr>
 
 		<tr class="">
 		<th scope="row">Description</th>
 		<td>
-Set the playback rate of the soundfile. 1 is the original speed. 0.5 is half speed and one octave down. 2 is double the speed and one octave up.
+Set the relative playback rate of the soundfile. 1 is the original speed. 0.5 is half speed and one octave down. 2 is double the speed and one octave up.
 </td>
 	</tr>
 
 	<tr class=""><th scope="row">Syntax</th><td><pre><kbd></kbd>.rate(<kbd>rate</kbd>)</pre></td></tr>
 
-
+	<tr class="">	<th scope="row">Parameters</th><td><table cellpadding="0" cellspacing="0" border="0"><tr class="">
+<th scope="row" class="code">rate</th>
+<td>float: Relative playback rate to use. 1 is the original speed. 0.5 is
+            half speed and one octave down. 2 is double the speed and one
+            octave up.</td>
+</tr></table></td>	</tr>
 	<tr class=""><th scope="row">Returns</th><td class="code">void</td></tr>
 
 </table>
 
-Updated on August 12, 2018 05:39:37pm EDT<br /><br />
+Updated on August 13, 2018 00:02:40pm EDT<br /><br />
 
 <!-- Creative Commons License -->
 
