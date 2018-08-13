@@ -102,7 +102,9 @@ void draw() {
 		<tr class="">
 		<th scope="row">Description</th>
 		<td>
-This is just a placeholder to see which class descriptions are added by the reference build process.
+This class allows you low-level access to an audio buffer to create, access, manipulate and play back sound samples.
+
+If you want to pre-load your audio sample with an audio file from disk you can do so using the SoundFile subclass.
 </td>
 	</tr>
 
@@ -110,13 +112,34 @@ This is just a placeholder to see which class descriptions are added by the refe
 
 	<tr class=""><th scope="row">Methods</th><td><table cellpadding="0" cellspacing="0" border="0"><tr class="">
 
+	<th scope="row"><a href="AudioSample_channels_.html">channels()</a></th>
+	<td>Returns the number of channels in the audiosample.</td>
+</tr>
+<tr class="">
+
+	<th scope="row"><a href="AudioSample_frames_.html">frames()</a></th>
+	<td>Returns the number of frames of the audiosample.</td>
+</tr>
+<tr class="">
+
 	<th scope="row"><a href="AudioSample_sampleRate_.html">sampleRate()</a></th>
 	<td>Returns the underlying sample rate of the audiosample.</td>
 </tr>
 <tr class="">
 
+	<th scope="row"><a href="AudioSample_pause_.html">pause()</a></th>
+	<td>Stop the playback of the sample, but cue it to the current position. The next
+ call to play() will continue playing where it left off.</td>
+</tr>
+<tr class="">
+
 	<th scope="row"><a href="AudioSample_read_.html">read()</a></th>
-	<td>Read some frames of this audio sample into the given array.</td>
+	<td>Read some frames of this audio sample into an array.</td>
+</tr>
+<tr class="">
+
+	<th scope="row"><a href="AudioSample_write_.html">write()</a></th>
+	<td>Write some frames of this audio sample.</td>
 </tr></table></td></tr>
 
 	<tr class=""><th scope="row">Constructor</th><td><pre>AudioSample(<kbd>parent</kbd>, <kbd>frames</kbd>)
@@ -152,7 +175,7 @@ AudioSample(<kbd>parent</kbd>, <kbd>data</kbd>, <kbd>stereo</kbd>, <kbd>frameRat
 	<tr class=""><th scope="row">Related</th><td><a class="code" href="libraries/sound/SoundFile.html">SoundFile</a><br /></td></tr>
 </table>
 
-Updated on August 10, 2018 04:21:14pm EDT<br /><br />
+Updated on August 12, 2018 05:39:38pm EDT<br /><br />
 
 <!-- Creative Commons License -->
 

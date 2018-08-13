@@ -36,6 +36,7 @@
 
   <script>
     var ShaderPath = null;
+    var pathReceived = false;
     var writeFile = false;
     var fsPath = null;
     var vsPath = null;
@@ -46,6 +47,7 @@
     //}
 
     ipcRenderer.on('shader path sent', (event, arg) => {  
+      pathReceived = false;
       ShaderPath = arg.toString();
       
       var arr = ShaderPath.split(";");
@@ -53,7 +55,13 @@
       vsPath = (arr[0] + '/' + arr[2]).toString();
 
       // Send sync message to main process
-      ipcRenderer.send('print', ShaderPath);
+      //ipcRenderer.send('print', ShaderPath);
+      if (arr[3] == 'temp!') {
+        ipcRenderer.send('send shader path', 0);
+      } else if (arr[3] == 'final!') {
+        ipcRenderer.send('print', ShaderPath);
+      }
+      
     });
     
 

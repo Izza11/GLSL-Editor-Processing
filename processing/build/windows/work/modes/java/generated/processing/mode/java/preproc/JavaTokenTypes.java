@@ -1,4 +1,4 @@
-// $ANTLR 2.7.7 (2006-11-01): "java15.g" -> "JavaLexer.java"$
+// $ANTLR 2.7.7 (20060906): "java15.g" -> "JavaLexer.java"$
 
 package processing.mode.java.preproc;
 

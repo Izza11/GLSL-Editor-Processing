@@ -11,11 +11,6 @@ function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({width: 800, height: 600})
 
-  
-  win.webContents.on('did-finish-load', () => {
-    win.webContents.send('send counter value', 'Hello renderer!');
-  });
-  
   // and load the index.html of the app.
   win.loadURL('file:///X:/GLSL-Editor-Processing/Shdr-master/sources/editor.html')
 
@@ -32,15 +27,6 @@ function createWindow () {
     win = null
   })
 }
-
-ipcMain.on('counter value sent', (event, arg) => {
-
-    console.log("Value of counter is : " + arg);
-    //event.sender.send('send counter value', 0);
-
-})
-
-
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -77,7 +63,7 @@ const net = require('net')
 const client = net.createConnection({ port: 25000 }, () => {
   // 'connect' listener
   console.log('connected to server!');
-  client.write('world!\r\n');
+  client.write('Connected!\r\n');
 });
 
 
@@ -87,17 +73,37 @@ var sendPath = false;
 // client.on means receiving data from server
 client.on('data', function(data) {
 
-  var d = data.toString();
+    if (data.toString() == 'wait'){
+        client.write('send path' + '\r\n');
 
-  if (d.charAt(d.length - 1) != "!") {   // checking that entire message has been received and not broken as it usually breaks
-    recPath += d;
-  } else {
-    recPath += d;
-    sendPath = true;
-    console.log('Message is : ' + recPath);
+    } else {
 
-  }
-  
+      var d = data.toString();
+
+      if (d.charAt(d.length - 1) != "!") {   // checking that entire message has been received and not broken as it usually breaks
+        recPath += d;
+      } else {
+        recPath += d;
+        
+        console.log('Message is : ' + recPath);
+        
+        var arr = recPath.split(";");
+        sendPath = true;
+        if (arr[3] == 'final!'){
+          win.webContents.send('shader path sent', recPath);
+          console.log('Final Message is being sent : ' + recPath);
+        }
+
+        client.write('send path' + '\r\n');
+
+      }
+
+    }
+
+    
+
+    
+
     // Close the client socket completely
     //client.destroy();
     
@@ -105,18 +111,22 @@ client.on('data', function(data) {
 
 ipcMain.on('send shader path', (event, arg) => {
 
-  if (sendPath) {
-    event.sender.send('shader path sent', recPath);
-    sendPath = false;
-    console.log("Sending path to renderer: " + recPath);
+      console.log("Now gonna Send to renderer...");
 
-  } 
+      if (sendPath) {
+        event.sender.send('shader path sent', recPath);
+        sendPath = false;
+        console.log("Sending path to renderer: " + recPath);
+        recPath = "";
+
+      } 
 
 })
 
+
 ipcMain.on('print', (event, arg) => {
 
-  console.log(arg);
+  console.log("Sent from renderer: " + arg);
 
 })
 

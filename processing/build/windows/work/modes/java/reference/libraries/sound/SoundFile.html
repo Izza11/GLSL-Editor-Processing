@@ -92,7 +92,6 @@ void draw() {
 		<tr class="">
 		<th scope="row">Description</th>
 		<td>
-
 This is a Soundfile Player which allows to play back and manipulate soundfiles. Supported formats are: WAV, AIF/AIFF, MP3.
 
 MP3 decoding can be very slow on ARM processors (Android/Raspberry Pi), we generally recommend you use lossless WAV or AIF files.
@@ -123,13 +122,34 @@ MP3 decoding can be very slow on ARM processors (Android/Raspberry Pi), we gener
 </tr>
 <tr class="">
 
+	<th scope="row"><a href="SoundFile_loop_.html">loop()</a></th>
+	<td>Starts playback which will loop at the end of the sample.</td>
+</tr>
+<tr class="">
+
 	<th scope="row"><a href="SoundFile_jump_.html">jump()</a></th>
 	<td>Jump to a specific position in the soundfile while continuing to play.</td>
 </tr>
 <tr class="">
 
 	<th scope="row"><a href="SoundFile_play_.html">play()</a></th>
-	<td>Starts the playback of the soundfile. Only plays the soundfile once.</td>
+	<td>Starts the playback of the soundfile from the cued position. Only plays to
+ the end of the audiosample once.</td>
+</tr>
+<tr class="">
+
+	<th scope="row"><a href="SoundFile_amp_.html">amp()</a></th>
+	<td>Change the amplitude/volume of this audiosample.</td>
+</tr>
+<tr class="">
+
+	<th scope="row"><a href="SoundFile_channels_.html">channels()</a></th>
+	<td>Returns the number of channels of the soundfile.</td>
+</tr>
+<tr class="">
+
+	<th scope="row"><a href="SoundFile_pan_.html">pan()</a></th>
+	<td>Move the sound in a stereo panorama. Only works for mono soundfiles!</td>
 </tr>
 <tr class="">
 
@@ -144,11 +164,18 @@ MP3 decoding can be very slow on ARM processors (Android/Raspberry Pi), we gener
 
 	<tr class=""><th scope="row">Constructor</th><td><pre>SoundFile(<kbd>parent</kbd>, <kbd>path</kbd>)
 </pre></td></tr>
-
+	<tr class="">	<th scope="row">Parameters</th><td><table cellpadding="0" cellspacing="0" border="0"><tr class="">
+<th scope="row" class="code">parent</th>
+<td>PApplet: typically use "this"</td>
+</tr>
+<tr class="">
+<th scope="row" class="code">path</th>
+<td>String: filename of the sound file to be loaded</td>
+</tr></table></td>	</tr>
 
 </table>
 
-Updated on August 10, 2018 04:21:14pm EDT<br /><br />
+Updated on August 12, 2018 05:39:37pm EDT<br /><br />
 
 <!-- Creative Commons License -->
 
