@@ -52,6 +52,10 @@ Instructions to run and test:
    #### For MacOS:
    
          electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds
+         
+   If above for MacOS doesn't work, run this:
+
+         ./node_modules/electron-packager/cli.js . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds    
    
    Running this command would create a folder by the name of 'release-builds' inside the Shdr-master directory, which would contain the    Shdr.exe. The pacakaged Shdr folder inside release-builds needs to be renamed and placed inside Processing tools directory later.
 
