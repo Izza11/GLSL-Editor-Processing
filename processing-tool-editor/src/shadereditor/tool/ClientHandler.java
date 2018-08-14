@@ -42,7 +42,7 @@ public class ClientHandler extends Thread {
 	       br = new BufferedReader(isr);
 	       String message = null;
 	       message = br.readLine();	
-	       System.out.println("Message received from Shdr is " + message);
+	       //System.out.println("Message received from Shdr is " + message);
 	   }
 
 	   
@@ -52,7 +52,7 @@ public class ClientHandler extends Thread {
 		   outToClient.flush();
 	       outToClient.writeBytes(data);
 	       outToClient.flush();
-	       System.out.println("toClient has ended");
+	       //System.out.println("toClient has ended");
 	   }
 
 	   public void closeConnection() throws IOException {
