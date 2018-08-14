@@ -96,7 +96,7 @@ public class ClientHandler extends Thread {
 		        		try {
 		        			fromClient();
 		        		} catch(Exception e) {
-		        			e.printStackTrace();	
+		        			//e.printStackTrace();	
 		        			break;				            
 		        		}
 		        		if (!saveSketch) {
@@ -111,14 +111,14 @@ public class ClientHandler extends Thread {
 		        		try{
 		        			toClient(dataPath);		        			
 		        		} catch(Exception e) {
-		        			e.printStackTrace();	
+		        			//e.printStackTrace();	
 		        			break;				            
 		        		}
 		        	} else if (saveSketch && !finalPath) {
 		        		try {
 		        			fromClient();
 		        		} catch(Exception e) {
-		        			e.printStackTrace();	
+		        			//e.printStackTrace();	
 		        			break;				            
 		        		}
 		        		dataPath = dataPath + "temp!";
@@ -127,7 +127,7 @@ public class ClientHandler extends Thread {
 		        		try{
 		        			toClient(dataPath);		        			
 		        		} catch(Exception e) {
-		        			e.printStackTrace();	
+		        			//e.printStackTrace();	
 		        			break;				            
 		        		}
 		        				        		
@@ -135,14 +135,14 @@ public class ClientHandler extends Thread {
 		        		try {
 		        			fromClient();
 		        		} catch(Exception e) {
-		        			e.printStackTrace();	
+		        			//e.printStackTrace();	
 		        			break;				            
 		        		}
 		        		
 		        		try{
 		        			toClient("wait");		        			
 		        		} catch(Exception e) {
-		        			e.printStackTrace();	
+		        			//e.printStackTrace();	
 		        			break;				            
 		        		}
 		        	}
