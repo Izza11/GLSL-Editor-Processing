@@ -102,6 +102,11 @@ MP3 decoding can be very slow on ARM processors (Android/Raspberry Pi), we gener
 
 	<tr class=""><th scope="row">Methods</th><td><table cellpadding="0" cellspacing="0" border="0"><tr class="">
 
+	<th scope="row"><a href="SoundFile_channels_.html">channels()</a></th>
+	<td>Returns the number of channels of the soundfile.</td>
+</tr>
+<tr class="">
+
 	<th scope="row"><a href="SoundFile_cue_.html">cue()</a></th>
 	<td>Cues the playhead to a fixed position in the soundfile.</td>
 </tr>
@@ -117,8 +122,9 @@ MP3 decoding can be very slow on ARM processors (Android/Raspberry Pi), we gener
 </tr>
 <tr class="">
 
-	<th scope="row"><a href="SoundFile_loop_.html">loop()</a></th>
-	<td>Starts playback which will loop at the end of the soundfile.</td>
+	<th scope="row"><a href="SoundFile_play_.html">play()</a></th>
+	<td>Starts the playback of the soundfile. Only plays to the end of the
+ audiosample once.</td>
 </tr>
 <tr class="">
 
@@ -133,19 +139,18 @@ MP3 decoding can be very slow on ARM processors (Android/Raspberry Pi), we gener
 </tr>
 <tr class="">
 
-	<th scope="row"><a href="SoundFile_play_.html">play()</a></th>
-	<td>Starts the playback of the soundfile. Only plays to the end of the
- audiosample once.</td>
+	<th scope="row"><a href="SoundFile_isPlaying_.html">isPlaying()</a></th>
+	<td>Check whether this soundfile is currently playing.</td>
+</tr>
+<tr class="">
+
+	<th scope="row"><a href="SoundFile_loop_.html">loop()</a></th>
+	<td>Starts playback which will loop at the end of the soundfile.</td>
 </tr>
 <tr class="">
 
 	<th scope="row"><a href="SoundFile_amp_.html">amp()</a></th>
 	<td>Change the amplitude/volume of this audiosample.</td>
-</tr>
-<tr class="">
-
-	<th scope="row"><a href="SoundFile_channels_.html">channels()</a></th>
-	<td>Returns the number of channels of the soundfile.</td>
 </tr>
 <tr class="">
 
@@ -176,7 +181,7 @@ MP3 decoding can be very slow on ARM processors (Android/Raspberry Pi), we gener
 
 </table>
 
-Updated on August 13, 2018 00:02:40pm EDT<br /><br />
+Updated on August 15, 2018 08:26:58am EDT<br /><br />
 
 <!-- Creative Commons License -->
 

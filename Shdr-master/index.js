@@ -12,7 +12,7 @@ function createWindow () {
   win = new BrowserWindow({width: 800, height: 600})
 
   // and load the index.html of the app.
-  win.loadURL('file:///X:/GLSL-Editor-Processing/Shdr-master/sources/editor.html')
+  win.loadURL(`file://${__dirname}/sources/editor.html`)
 
 
 
