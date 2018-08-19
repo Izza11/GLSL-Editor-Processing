@@ -35,11 +35,11 @@ Instructions to run and test:
 
 ### Packaging instructions for Shdr
 
-1. Open a terminal/console/command prompt, change to the Shdr-master directory. Type and run this command:
-
-   #### For Windows:
+1. Open a terminal/console/command prompt, change to the Shdr-master directory. Type and run the commands in the order shown:
    
          npm install electron-packager --save-dev
+         
+   #### For Windows:
          
    And then run this ('--arch=ia32' for Windows 32-bit OR '--arch=x64' for Windows 64-bit):
    
