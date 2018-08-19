@@ -11,19 +11,26 @@ Instructions to run and test:
    
    Open a terminal/console/command prompt, change to the Shdr-master directory. Run the following commands,   
 
-   Install Electron locally:
+   #### For Windows
+      Install Electron locally:
    
          npm install --save-dev electron
    
-   If you get a permissions issue with the above command try running this:
-   
-         sudo npm install electron --unsafe-perm=true
-   
-   Install Electron globally:
+      Install Electron globally:
    
          npm install electron -g
+           
+   #### For MacOS
+      Install electron locally:
+      
+         sudo npm install electron --save-dev --unsafe-perm=true
    
-   Install Node.js:
+      Install electron globally:
+   
+         sudo npm install electron -g --unsafe-perm=true
+           
+   
+   Install Node.js (works for both Windows and MacOS):
    
          npm install
    
@@ -37,15 +44,19 @@ Instructions to run and test:
 
 1. Open a terminal/console/command prompt, change to the Shdr-master directory. Type and run the commands in the order shown:
    
-         npm install electron-packager --save-dev
-         
    #### For Windows:
+   
+         npm install electron-packager --save-dev
          
    And then run this ('--arch=ia32' for Windows 32-bit OR '--arch=x64' for Windows 64-bit):
    
          electron-packager . Shdr --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds
          
    #### For MacOS:
+   
+         sudo npm install electron-packager -g --unsafe-perm=true
+   
+   and then this:
    
          electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=release-builds
          
