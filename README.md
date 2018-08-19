@@ -26,12 +26,8 @@ Instructions to run and test:
    Install Node.js:
    
          npm install
-     
-2. Open and edit the 'index.js' file inside Shdr-master. Set the appropriate path for 'editor.html' in the following function:
-
-         win.loadURL('file:///X:/GLSL-Editor-Processing/Shdr-master/sources/editor.html')
    
-3. Launch Shdr using by running this command while in the GLSL-Editor-Processing/Shdr-master directory
+2. Launch Shdr using by running this command while in the GLSL-Editor-Processing/Shdr-master directory
    
          npm start
    
